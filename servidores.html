@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Servidores Cloud y On-Premise - BreadTeach</title>
+<meta name="description" content="Administracion de servidores cloud y on-premise en Cuernavaca, Morelos. Alta disponibilidad, backups, virtualizacion y gestion de infraestructura por BreadTeach.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+:root{--blue:#29a0d3;--blue-l:#4bb3e0;--blue-d:#1c81ac;--orange:#f39200;--orange-l:#faad33;--b0:#0d1117;--b1:#161b22;--b2:#1c2128;--b3:#21262d;--t0:#e6edf3;--t1:#8b949e;--t2:#6e7681;--border:rgba(255,255,255,.07)}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--b0);color:var(--t0);overflow-x:hidden}
+nav{position:fixed;top:0;width:100%;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:.85rem 2rem;background:rgba(13,17,23,.85);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);transition:all .3s}
+.logo{display:flex;align-items:center;text-decoration:none}.logo img{height:40px;width:auto;object-fit:contain}
+.nav-links{display:flex;gap:2rem;list-style:none;align-items:center}
+.nav-links a{color:var(--t1);text-decoration:none;font-size:.875rem;font-weight:600;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--blue)}
+.dropdown{position:relative}.dropdown>a{display:flex;align-items:center;gap:.3rem}
+.dropdown-menu{display:none;position:absolute;top:100%;left:0;padding-top:.75rem;list-style:none;flex-direction:column;z-index:100;min-width:240px}
+.dropdown:hover .dropdown-menu{display:flex}
+.dropdown-menu-inner{background:var(--b1);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:.5rem 0;box-shadow:0 16px 40px rgba(0,0,0,.6);width:100%;position:relative}
+.dropdown-menu-inner::before{content:'';position:absolute;top:-6px;left:18px;width:12px;height:12px;background:var(--b1);border-left:1px solid rgba(255,255,255,.08);border-top:1px solid rgba(255,255,255,.08);transform:rotate(45deg)}
+.dropdown-menu li a{display:block;padding:.72rem 1.4rem;font-size:.83rem;font-weight:500;color:var(--t1);transition:all .18s;border-left:2px solid transparent;text-decoration:none}
+.dropdown-menu li a:hover,.dropdown-menu li a.active{background:rgba(41,160,211,.08);color:var(--blue);border-left-color:var(--blue);padding-left:1.6rem}
+.btn{display:inline-flex;align-items:center;gap:.35rem;padding:.58rem 1.2rem;border-radius:8px;font-size:.875rem;font-weight:700;cursor:pointer;text-decoration:none;transition:all .2s;border:none;font-family:inherit;line-height:1}
+.btn-y{background:var(--orange);color:#fff}.btn-y:hover{background:var(--orange-l);transform:translateY(-2px);box-shadow:0 8px 24px rgba(243,146,0,.35)}
+.btn-yb{background:transparent;color:var(--blue);border:1.5px solid var(--blue)}.btn-yb:hover{background:rgba(41,160,211,.1);transform:translateY(-2px)}
+.cnt{max-width:1200px;margin:0 auto;width:100%;padding:0 1rem}
+.svc-banner{min-height:55vh;display:flex;align-items:center;padding:8rem 2rem 4rem;position:relative;overflow:hidden;background:linear-gradient(135deg,var(--b0) 0%,var(--b1) 100%)}
+.svc-banner::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(41,160,211,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(41,160,211,.04) 1px,transparent 1px);background-size:58px 58px}
+.banner-glow{position:absolute;width:700px;height:700px;background:radial-gradient(circle,rgba(41,160,211,.1) 0%,transparent 65%);top:50%;right:-10%;transform:translateY(-50%)}
+.banner-inner{position:relative;z-index:1;max-width:800px}
+.breadcrumb{display:flex;align-items:center;gap:.5rem;margin-bottom:1.5rem;font-size:.8rem;color:var(--t2)}
+.breadcrumb a{color:var(--blue);text-decoration:none}.breadcrumb a:hover{text-decoration:underline}
+.banner-tag{color:var(--orange);font-size:.75rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:.6rem}
+.banner-inner h1{font-size:clamp(2rem,4vw,3.2rem);font-weight:800;letter-spacing:-.03em;line-height:1.1;margin-bottom:1rem}
+.amb{color:var(--blue)}.banner-inner p{color:var(--t1);font-size:1.05rem;line-height:1.8;max-width:650px}
+.banner-btns{display:flex;gap:.85rem;flex-wrap:wrap;margin-top:2rem}
+.sec{padding:5rem 0}.wsec{padding:5rem 0;background:linear-gradient(180deg,rgba(41,160,211,.03),rgba(41,160,211,.05) 50%,rgba(41,160,211,.03))}
+.s-tag{color:var(--orange);font-size:.75rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:.55rem}
+h2{font-size:clamp(1.6rem,2.5vw,2.2rem);font-weight:800;letter-spacing:-.03em;margin-bottom:.8rem;color:var(--t0)}
+.s-sub{color:var(--t1);font-size:.96rem;line-height:1.82;max-width:540px;margin-bottom:2.4rem}
+.ctr{text-align:center}.ctr .s-sub{margin:0 auto 2.4rem}
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.feat{background:var(--b2);border:1px solid var(--border);border-radius:13px;padding:1.8rem 1.5rem;transition:all .3s}
+.feat:hover{border-color:rgba(41,160,211,.25);transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.3)}
+.feat-ic{font-size:2rem;margin-bottom:1rem;display:block}
+.feat-t{font-weight:700;font-size:.95rem;margin-bottom:.5rem;color:var(--t0)}
+.feat-d{font-size:.82rem;color:var(--t1);line-height:1.7}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.comp-col{background:var(--b2);border:1px solid var(--border);border-radius:14px;padding:2rem;transition:all .3s}
+.comp-col.active{border-color:rgba(41,160,211,.3);box-shadow:0 0 0 1px rgba(41,160,211,.1)}
+.comp-ic{font-size:2.2rem;margin-bottom:.8rem}
+.comp-t{font-weight:800;font-size:1.1rem;color:var(--t0);margin-bottom:.4rem}
+.comp-d{font-size:.82rem;color:var(--t1);line-height:1.65;margin-bottom:1.2rem}
+.comp-list{list-style:none;display:flex;flex-direction:column;gap:.55rem}
+.comp-list li{font-size:.8rem;color:var(--t1);display:flex;gap:.5rem}
+.comp-list li::before{content:'\2192';color:var(--blue);font-weight:700;flex-shrink:0}
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:3rem}
+.stat{background:var(--b2);border:1px solid var(--border);border-radius:12px;padding:1.5rem 1rem;text-align:center}
+.stat-n{font-size:2rem;font-weight:800;color:var(--orange);line-height:1}
+.stat-l{font-size:.78rem;color:var(--t1);margin-top:.4rem}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.list-items{display:flex;flex-direction:column;gap:1rem;margin-top:1rem}
+.li-item{display:flex;gap:.85rem;align-items:flex-start}
+.li-ic{flex-shrink:0;width:36px;height:36px;background:rgba(41,160,211,.1);border:1px solid rgba(41,160,211,.2);color:var(--blue-l);border-radius:8px;display:grid;place-items:center;font-size:1rem}
+.li-t{font-weight:700;font-size:.875rem;margin-bottom:.2rem;color:var(--t0)}
+.li-d{font-size:.8rem;color:var(--t1);line-height:1.65}
+.cta-b{background:linear-gradient(135deg,rgba(41,160,211,.08),rgba(41,160,211,.04) 60%,rgba(243,146,0,.06));border:1px solid rgba(41,160,211,.15);border-radius:20px;padding:3.5rem 2.5rem;text-align:center;position:relative;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.3)}
+.cta-b::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 65% 90% at 50% 50%,rgba(41,160,211,.04),transparent);pointer-events:none}
+.cta-b h2,.cta-b p,.cta-btns{position:relative}
+.cta-b p{color:var(--t1);margin:.7rem 0 2rem;font-size:.96rem}
+.cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+footer{padding:2.5rem 2rem;text-align:center;border-top:1px solid var(--border);background:var(--b1)}
+.f-logo{display:flex;align-items:center;justify-content:center;margin-bottom:1rem}
+.f-logo img{height:40px;width:auto;object-fit:contain}
+footer p{color:var(--t2);font-size:.77rem}
+.rv{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}.rv.on{opacity:1;transform:none}
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:.3rem;background:none;border:none}
+.ham span{display:block;width:22px;height:2px;background:var(--t0);border-radius:2px}
+.mobile-nav{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(13,17,23,.97);z-index:999;padding:5rem 2rem 2rem;flex-direction:column;gap:1.5rem}
+.mobile-nav.open{display:flex}
+.mobile-nav a{color:var(--t0);font-size:1.1rem;font-weight:700;text-decoration:none;padding:.5rem 0;border-bottom:1px solid var(--border)}
+.mobile-nav a:hover{color:var(--blue)}.m-close{position:absolute;top:1.2rem;right:1.5rem;background:none;border:none;color:var(--t0);font-size:1.8rem;cursor:pointer}
+@media(max-width:940px){.nav-links{display:none}.ham{display:flex}.feat-grid{grid-template-columns:1fr 1fr}.two-col{grid-template-columns:1fr;gap:2.5rem}.compare{grid-template-columns:1fr}.stats-row{grid-template-columns:1fr 1fr}}
+@media(max-width:540px){.feat-grid{grid-template-columns:1fr}.svc-banner{padding:7rem 1.25rem 3rem}}
+</style>
+</head>
+<body>
+<nav id="nb">
+  <a class="logo" href="index.html"><img src="Gemini_Generated_Image_4tzenf4tzenf4tze.png" alt="BreadTeach Logo"></a>
+  <ul class="nav-links">
+    <li class="dropdown">
+      <a href="servicios.html" class="active">Servicios &#9660;</a>
+      <ul class="dropdown-menu">
+        <div class="dropdown-menu-inner">
+          <li><a href="soporte.html">&#128421; Soporte y Mantenimiento</a></li>
+          <li><a href="redes.html">&#127760; Redes y Seguridad</a></li>
+          <li><a href="servidores.html" class="active">&#9729; Servidores Cloud / On-Premise</a></li>
+          <li><a href="web.html">&#128187; Desarrollo Web</a></li>
+        </div>
+      </ul>
+    </li>
+    <li><a href="nosotros.html">Nosotros</a></li>
+    <li><a href="nosotros.html#proceso">Proceso</a></li>
+    <li><a href="contacto.html">Contacto</a></li>
+  </ul>
+  <a href="contacto.html" class="btn btn-y">Cotiza gratis &#8594;</a>
+  <button class="ham" id="hamBtn"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <button class="m-close" id="mClose">&#10005;</button>
+  <a href="servicios.html">Servicios</a>
+  <a href="soporte.html">&mdash; Soporte y Mantenimiento</a>
+  <a href="redes.html">&mdash; Redes y Seguridad</a>
+  <a href="servidores.html">&mdash; Servidores Cloud / On-Premise</a>
+  <a href="web.html">&mdash; Desarrollo Web</a>
+  <a href="nosotros.html">Nosotros</a>
+  <a href="nosotros.html#proceso">Proceso</a>
+  <a href="contacto.html">Contacto</a>
+</div>
+
+<section class="svc-banner">
+  <div class="banner-glow"></div>
+  <div class="cnt">
+    <div class="banner-inner">
+      <div class="breadcrumb"><a href="index.html">Inicio</a><span>&#8250;</span><a href="servicios.html">Servicios</a><span>&#8250;</span><span>Servidores</span></div>
+      <div class="banner-tag">Infraestructura de servidores</div>
+      <h1>Servidores <span class="amb">Cloud</span> y On-Premise</h1>
+      <p>Tu infraestructura de servidor, gestionada por expertos. Maximo rendimiento, alta disponibilidad y tranquilidad operativa — ya sea en la nube o en tu propio centro de datos.</p>
+      <div class="banner-btns">
+        <a href="contacto.html" class="btn btn-y">&#9729; Solicitar propuesta</a>
+        <a href="tel:7773455468" class="btn btn-yb">Llamar ahora</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="cnt">
+    <div class="rv ctr" style="margin-bottom:3rem">
+      <div class="s-tag">Servicios de servidor</div>
+      <h2>Todo lo que necesita tu <span class="amb">infraestructura</span></h2>
+      <p class="s-sub ctr">Administramos servidores de cualquier tipo y escala. Tu te enfocas en tu negocio, nosotros en que todo funcione.</p>
+    </div>
+    <div class="feat-grid rv">
+      <div class="feat"><span class="feat-ic">&#9729;</span><div class="feat-t">Cloud Computing</div><div class="feat-d">Migracion y gestion en AWS, Azure, Google Cloud. Arquitecturas escalables, contenedores Docker/Kubernetes y serverless.</div></div>
+      <div class="feat"><span class="feat-ic">&#128421;</span><div class="feat-t">Servidores On-Premise</div><div class="feat-d">Instalacion, configuracion y administracion de servidores fisicos Windows Server, Linux (Ubuntu, CentOS, RHEL).</div></div>
+      <div class="feat"><span class="feat-ic">&#9889;</span><div class="feat-t">Virtualizacion</div><div class="feat-d">Implementacion de VMware vSphere, Hyper-V y Proxmox para maximizar el rendimiento de tu hardware.</div></div>
+      <div class="feat"><span class="feat-ic">&#128190;</span><div class="feat-t">Backups Automatizados</div><div class="feat-d">Estrategias de respaldo 3-2-1: local, en red y en nube. Pruebas de restauracion periodicas y RPO/RTO definidos.</div></div>
+      <div class="feat"><span class="feat-ic">&#128202;</span><div class="feat-t">Monitoreo 24/7</div><div class="feat-d">Supervision continua de CPU, RAM, disco y red. Alertas proactivas antes de que los problemas afecten tu operacion.</div></div>
+      <div class="feat"><span class="feat-ic">&#128274;</span><div class="feat-t">Seguridad de Servidor</div><div class="feat-d">Hardening, actualizaciones de seguridad, configuracion de firewall de host y gestion de accesos privilegiados.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="wsec">
+  <div class="cnt">
+    <div class="rv ctr" style="margin-bottom:3rem">
+      <div class="s-tag">&#191;Cloud u On-Premise?</div>
+      <h2>Te ayudamos a elegir la <span class="amb">mejor opcion</span></h2>
+      <p class="s-sub ctr">No hay una respuesta unica. Analizamos tu caso y recomendamos la arquitectura que equilibra costo, rendimiento y seguridad.</p>
+    </div>
+    <div class="compare rv">
+      <div class="comp-col">
+        <div class="comp-ic">&#9729;</div>
+        <div class="comp-t">Cloud / Nube</div>
+        <div class="comp-d">Ideal para empresas que buscan flexibilidad, escalabilidad y reducir inversion inicial en hardware.</div>
+        <ul class="comp-list">
+          <li>Sin inversion inicial en hardware</li>
+          <li>Escalabilidad instantanea</li>
+          <li>Pago por uso</li>
+          <li>Alta disponibilidad geografica</li>
+          <li>Actualizaciones automaticas</li>
+          <li>Acceso desde cualquier lugar</li>
+        </ul>
+      </div>
+      <div class="comp-col active">
+        <div class="comp-ic">&#128421;</div>
+        <div class="comp-t">On-Premise / Local</div>
+        <div class="comp-d">Ideal para empresas con requisitos estrictos de seguridad, control de datos o latencia muy baja.</div>
+        <ul class="comp-list">
+          <li>Control total de los datos</li>
+          <li>Mayor rendimiento en local</li>
+          <li>Sin costos recurrentes de nube</li>
+          <li>Cumplimiento normativo</li>
+          <li>Independencia del proveedor</li>
+          <li>Personalizacion completa</li>
+        </ul>
+      </div>
+    </div>
+    <div class="stats-row rv">
+      <div class="stat"><div class="stat-n">99.9%</div><div class="stat-l">Uptime garantizado</div></div>
+      <div class="stat"><div class="stat-n">&lt;4h</div><div class="stat-l">Tiempo de respuesta ante incidentes</div></div>
+      <div class="stat"><div class="stat-n">24/7</div><div class="stat-l">Monitoreo continuo</div></div>
+      <div class="stat"><div class="stat-n">0</div><div class="stat-l">Perdida de datos con nuestros backups</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:0">
+  <div class="cnt">
+    <div class="cta-b rv">
+      <h2>&#191;Tu servidor actual te da problemas?</h2>
+      <p>Auditamos tu infraestructura sin costo. Identificamos problemas y te damos un plan de accion claro.</p>
+      <div class="cta-btns">
+        <a href="contacto.html" class="btn btn-y">&#9729; Auditar mi infraestructura</a>
+        <a href="tel:7773455468" class="btn btn-yb">Llamar: (777) 345-5468</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="f-logo"><img src="Gemini_Generated_Image_4tzenf4tzenf4tze.png" alt="BreadTeach Logo"></div>
+  <p>&#169; 2026 BreadTeach &middot; Servicios Integrales de Soporte y Tecnologia &middot; Cuernavaca, Morelos, Mexico</p>
+</footer>
+<script>
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')})},{threshold:.07});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+const nb=document.getElementById('nb');
+window.addEventListener('scroll',()=>{nb.style.background=scrollY>60?'rgba(13,17,23,.97)':'rgba(13,17,23,.85)';nb.style.boxShadow=scrollY>60?'0 4px 20px rgba(0,0,0,.4)':'none';},{passive:true});
+const hamBtn=document.getElementById('hamBtn'),mobileNav=document.getElementById('mobileNav'),mClose=document.getElementById('mClose');
+hamBtn.addEventListener('click',()=>mobileNav.classList.add('open'));
+mClose.addEventListener('click',()=>mobileNav.classList.remove('open'));
+mobileNav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mobileNav.classList.remove('open')));
+</script>
+</body>
+</html>

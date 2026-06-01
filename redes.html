@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Redes y Seguridad - BreadTeach</title>
+<meta name="description" content="Diseno, instalacion y seguridad de redes empresariales en Cuernavaca, Morelos. Firewalls, ciberseguridad, redes LAN/WAN por BreadTeach.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+:root{--blue:#29a0d3;--blue-l:#4bb3e0;--blue-d:#1c81ac;--orange:#f39200;--orange-l:#faad33;--b0:#0d1117;--b1:#161b22;--b2:#1c2128;--b3:#21262d;--t0:#e6edf3;--t1:#8b949e;--t2:#6e7681;--border:rgba(255,255,255,.07)}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--b0);color:var(--t0);overflow-x:hidden}
+nav{position:fixed;top:0;width:100%;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:.85rem 2rem;background:rgba(13,17,23,.85);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);transition:all .3s}
+.logo{display:flex;align-items:center;text-decoration:none}.logo img{height:40px;width:auto;object-fit:contain}
+.nav-links{display:flex;gap:2rem;list-style:none;align-items:center}
+.nav-links a{color:var(--t1);text-decoration:none;font-size:.875rem;font-weight:600;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--blue)}
+.dropdown{position:relative}.dropdown>a{display:flex;align-items:center;gap:.3rem}
+.dropdown-menu{display:none;position:absolute;top:100%;left:0;padding-top:.75rem;list-style:none;flex-direction:column;z-index:100;min-width:240px}
+.dropdown:hover .dropdown-menu{display:flex}
+.dropdown-menu-inner{background:var(--b1);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:.5rem 0;box-shadow:0 16px 40px rgba(0,0,0,.6);width:100%;position:relative}
+.dropdown-menu-inner::before{content:'';position:absolute;top:-6px;left:18px;width:12px;height:12px;background:var(--b1);border-left:1px solid rgba(255,255,255,.08);border-top:1px solid rgba(255,255,255,.08);transform:rotate(45deg)}
+.dropdown-menu li a{display:block;padding:.72rem 1.4rem;font-size:.83rem;font-weight:500;color:var(--t1);transition:all .18s;border-left:2px solid transparent;text-decoration:none}
+.dropdown-menu li a:hover,.dropdown-menu li a.active{background:rgba(41,160,211,.08);color:var(--blue);border-left-color:var(--blue);padding-left:1.6rem}
+.btn{display:inline-flex;align-items:center;gap:.35rem;padding:.58rem 1.2rem;border-radius:8px;font-size:.875rem;font-weight:700;cursor:pointer;text-decoration:none;transition:all .2s;border:none;font-family:inherit;line-height:1}
+.btn-y{background:var(--orange);color:#fff}.btn-y:hover{background:var(--orange-l);transform:translateY(-2px);box-shadow:0 8px 24px rgba(243,146,0,.35)}
+.btn-yb{background:transparent;color:var(--blue);border:1.5px solid var(--blue)}.btn-yb:hover{background:rgba(41,160,211,.1);transform:translateY(-2px)}
+.cnt{max-width:1200px;margin:0 auto;width:100%;padding:0 1rem}
+.svc-banner{min-height:55vh;display:flex;align-items:center;padding:8rem 2rem 4rem;position:relative;overflow:hidden;background:linear-gradient(135deg,var(--b0) 0%,var(--b1) 100%)}
+.svc-banner::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(41,160,211,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(41,160,211,.04) 1px,transparent 1px);background-size:58px 58px}
+.banner-glow{position:absolute;width:700px;height:700px;background:radial-gradient(circle,rgba(41,160,211,.1) 0%,transparent 65%);top:50%;right:-10%;transform:translateY(-50%)}
+.banner-inner{position:relative;z-index:1;max-width:800px}
+.breadcrumb{display:flex;align-items:center;gap:.5rem;margin-bottom:1.5rem;font-size:.8rem;color:var(--t2)}
+.breadcrumb a{color:var(--blue);text-decoration:none}.breadcrumb a:hover{text-decoration:underline}
+.banner-tag{color:var(--orange);font-size:.75rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:.6rem}
+.banner-inner h1{font-size:clamp(2rem,4vw,3.2rem);font-weight:800;letter-spacing:-.03em;line-height:1.1;margin-bottom:1rem}
+.amb{color:var(--blue)}.banner-inner p{color:var(--t1);font-size:1.05rem;line-height:1.8;max-width:650px}
+.banner-btns{display:flex;gap:.85rem;flex-wrap:wrap;margin-top:2rem}
+.sec{padding:5rem 0}.wsec{padding:5rem 0;background:linear-gradient(180deg,rgba(41,160,211,.03),rgba(41,160,211,.05) 50%,rgba(41,160,211,.03))}
+.s-tag{color:var(--orange);font-size:.75rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:.55rem}
+h2{font-size:clamp(1.6rem,2.5vw,2.2rem);font-weight:800;letter-spacing:-.03em;margin-bottom:.8rem;color:var(--t0)}
+.s-sub{color:var(--t1);font-size:.96rem;line-height:1.82;max-width:540px;margin-bottom:2.4rem}
+.ctr{text-align:center}.ctr .s-sub{margin:0 auto 2.4rem}
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.feat{background:var(--b2);border:1px solid var(--border);border-radius:13px;padding:1.8rem 1.5rem;transition:all .3s}
+.feat:hover{border-color:rgba(41,160,211,.25);transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.3)}
+.feat-ic{font-size:2rem;margin-bottom:1rem;display:block}
+.feat-t{font-weight:700;font-size:.95rem;margin-bottom:.5rem;color:var(--t0)}
+.feat-d{font-size:.82rem;color:var(--t1);line-height:1.7}
+.sec-levels{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.sec-lv{background:var(--b2);border:1px solid var(--border);border-radius:13px;padding:1.5rem 1.2rem;text-align:center;transition:all .3s}
+.sec-lv:hover{border-color:rgba(41,160,211,.25);transform:translateY(-4px)}
+.lv-num{font-size:2rem;font-weight:800;color:var(--blue);line-height:1;margin-bottom:.5rem}
+.lv-t{font-weight:700;font-size:.85rem;color:var(--t0);margin-bottom:.4rem}
+.lv-d{font-size:.78rem;color:var(--t1);line-height:1.6}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.list-items{display:flex;flex-direction:column;gap:1rem;margin-top:1rem}
+.li-item{display:flex;gap:.85rem;align-items:flex-start}
+.li-ic{flex-shrink:0;width:36px;height:36px;background:rgba(41,160,211,.1);border:1px solid rgba(41,160,211,.2);color:var(--blue-l);border-radius:8px;display:grid;place-items:center;font-size:1rem}
+.li-t{font-weight:700;font-size:.875rem;margin-bottom:.2rem;color:var(--t0)}
+.li-d{font-size:.8rem;color:var(--t1);line-height:1.65}
+.cta-b{background:linear-gradient(135deg,rgba(41,160,211,.08),rgba(41,160,211,.04) 60%,rgba(243,146,0,.06));border:1px solid rgba(41,160,211,.15);border-radius:20px;padding:3.5rem 2.5rem;text-align:center;position:relative;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.3)}
+.cta-b::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 65% 90% at 50% 50%,rgba(41,160,211,.04),transparent);pointer-events:none}
+.cta-b h2,.cta-b p,.cta-btns{position:relative}
+.cta-b p{color:var(--t1);margin:.7rem 0 2rem;font-size:.96rem}
+.cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+footer{padding:2.5rem 2rem;text-align:center;border-top:1px solid var(--border);background:var(--b1)}
+.f-logo{display:flex;align-items:center;justify-content:center;margin-bottom:1rem}
+.f-logo img{height:40px;width:auto;object-fit:contain}
+footer p{color:var(--t2);font-size:.77rem}
+.rv{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}.rv.on{opacity:1;transform:none}
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:.3rem;background:none;border:none}
+.ham span{display:block;width:22px;height:2px;background:var(--t0);border-radius:2px}
+.mobile-nav{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(13,17,23,.97);z-index:999;padding:5rem 2rem 2rem;flex-direction:column;gap:1.5rem}
+.mobile-nav.open{display:flex}
+.mobile-nav a{color:var(--t0);font-size:1.1rem;font-weight:700;text-decoration:none;padding:.5rem 0;border-bottom:1px solid var(--border)}
+.mobile-nav a:hover{color:var(--blue)}.m-close{position:absolute;top:1.2rem;right:1.5rem;background:none;border:none;color:var(--t0);font-size:1.8rem;cursor:pointer}
+@media(max-width:940px){.nav-links{display:none}.ham{display:flex}.feat-grid{grid-template-columns:1fr 1fr}.two-col{grid-template-columns:1fr;gap:2.5rem}.sec-levels{grid-template-columns:1fr 1fr}}
+@media(max-width:540px){.feat-grid{grid-template-columns:1fr}.svc-banner{padding:7rem 1.25rem 3rem}}
+</style>
+</head>
+<body>
+<nav id="nb">
+  <a class="logo" href="index.html"><img src="Gemini_Generated_Image_4tzenf4tzenf4tze.png" alt="BreadTeach Logo"></a>
+  <ul class="nav-links">
+    <li class="dropdown">
+      <a href="servicios.html" class="active">Servicios &#9660;</a>
+      <ul class="dropdown-menu">
+        <div class="dropdown-menu-inner">
+          <li><a href="soporte.html">&#128421; Soporte y Mantenimiento</a></li>
+          <li><a href="redes.html" class="active">&#127760; Redes y Seguridad</a></li>
+          <li><a href="servidores.html">&#9729; Servidores Cloud / On-Premise</a></li>
+          <li><a href="web.html">&#128187; Desarrollo Web</a></li>
+        </div>
+      </ul>
+    </li>
+    <li><a href="nosotros.html">Nosotros</a></li>
+    <li><a href="nosotros.html#proceso">Proceso</a></li>
+    <li><a href="contacto.html">Contacto</a></li>
+  </ul>
+  <a href="contacto.html" class="btn btn-y">Cotiza gratis &#8594;</a>
+  <button class="ham" id="hamBtn"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <button class="m-close" id="mClose">&#10005;</button>
+  <a href="servicios.html">Servicios</a>
+  <a href="soporte.html">&mdash; Soporte y Mantenimiento</a>
+  <a href="redes.html">&mdash; Redes y Seguridad</a>
+  <a href="servidores.html">&mdash; Servidores Cloud / On-Premise</a>
+  <a href="web.html">&mdash; Desarrollo Web</a>
+  <a href="nosotros.html">Nosotros</a>
+  <a href="nosotros.html#proceso">Proceso</a>
+  <a href="contacto.html">Contacto</a>
+</div>
+
+<section class="svc-banner">
+  <div class="banner-glow"></div>
+  <div class="cnt">
+    <div class="banner-inner">
+      <div class="breadcrumb"><a href="index.html">Inicio</a><span>&#8250;</span><a href="servicios.html">Servicios</a><span>&#8250;</span><span>Redes y Seguridad</span></div>
+      <div class="banner-tag">Infraestructura de red</div>
+      <h1>Redes y <span class="amb">Seguridad</span> Empresarial</h1>
+      <p>Disenamos, instalamos y protegemos la red que mueve tu negocio. Desde una red local hasta infraestructuras multi-sede con seguridad de nivel corporativo.</p>
+      <div class="banner-btns">
+        <a href="contacto.html" class="btn btn-y">&#127760; Solicitar diagnostico</a>
+        <a href="tel:7773455468" class="btn btn-yb">Llamar ahora</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="cnt">
+    <div class="rv ctr" style="margin-bottom:3rem">
+      <div class="s-tag">Servicios de red</div>
+      <h2>Conectividad y <span class="amb">proteccion</span> sin compromisos</h2>
+      <p class="s-sub ctr">Una red mal configurada es una puerta abierta para amenazas y tiempos muertos. Nosotros la cerramos.</p>
+    </div>
+    <div class="feat-grid rv">
+      <div class="feat"><span class="feat-ic">&#128506;</span><div class="feat-t">Diseno de Red</div><div class="feat-d">Arquitectura de red a medida: tipologia, segmentacion VLAN, dimensionamiento de ancho de banda y planos de cableado estructurado.</div></div>
+      <div class="feat"><span class="feat-ic">&#128296;</span><div class="feat-t">Instalacion y Cableado</div><div class="feat-d">Instalacion de cableado categoria 6A, fibra optica, patch panels, racks y certificacion de puntos de red con equipos profesionales.</div></div>
+      <div class="feat"><span class="feat-ic">&#128225;</span><div class="feat-t">Redes WiFi Empresarial</div><div class="feat-d">Diseno de cobertura inalambrica con access points administrables, roaming transparente y control de acceso por perfil de usuario.</div></div>
+      <div class="feat"><span class="feat-ic">&#128293;</span><div class="feat-t">Firewall y UTM</div><div class="feat-d">Configuracion de firewalls Next-Gen con inspeccion profunda de paquetes, IPS/IDS, filtrado web y prevencion de intrusiones.</div></div>
+      <div class="feat"><span class="feat-ic">&#128274;</span><div class="feat-t">VPN Empresarial</div><div class="feat-d">Tuneles VPN site-to-site y acceso remoto seguro para tu equipo de trabajo desde cualquier lugar del mundo.</div></div>
+      <div class="feat"><span class="feat-ic">&#128065;</span><div class="feat-t">Monitoreo de Red</div><div class="feat-d">Supervision continua del trafico de red, deteccion de anomalias y alertas tempranas ante cualquier incidente de seguridad.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="wsec">
+  <div class="cnt">
+    <div class="rv ctr" style="margin-bottom:3rem">
+      <div class="s-tag">Niveles de proteccion</div>
+      <h2>Seguridad en <span class="amb">capas</span></h2>
+      <p class="s-sub ctr">Implementamos un modelo de defensa en profundidad. Cada capa protege lo que la anterior no puede.</p>
+    </div>
+    <div class="sec-levels rv">
+      <div class="sec-lv"><div class="lv-num">01</div><div class="lv-t">Perimetro</div><div class="lv-d">Firewall, IPS y filtrado de trafico entrante/saliente</div></div>
+      <div class="sec-lv"><div class="lv-num">02</div><div class="lv-t">Red Interna</div><div class="lv-d">Segmentacion VLAN, control de acceso NAC y politicas de red</div></div>
+      <div class="sec-lv"><div class="lv-num">03</div><div class="lv-t">Endpoints</div><div class="lv-d">Antivirus gestionado, EDR y politicas de dispositivos</div></div>
+      <div class="sec-lv"><div class="lv-num">04</div><div class="lv-t">Identidad</div><div class="lv-d">Autenticacion multifactor, directorio activo y control de privilegios</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="cnt">
+    <div class="two-col">
+      <div class="rv">
+        <div class="s-tag">&#191;Por que es urgente?</div>
+        <h2>Una red sin seguridad es un <span class="amb">riesgo latente</span></h2>
+        <p class="s-sub">El 60% de las PyMEs que sufren un ciberataque cierran en 6 meses. Una inversion en seguridad es una inversion en continuidad del negocio.</p>
+        <a href="contacto.html" class="btn btn-y">Auditar mi red ahora</a>
+      </div>
+      <div class="list-items rv">
+        <div class="li-item"><div class="li-ic">&#128737;</div><div><div class="li-t">Auditoria de seguridad incluida</div><div class="li-d">Evaluamos tu red actual e identificamos vulnerabilidades antes de implementar soluciones.</div></div></div>
+        <div class="li-item"><div class="li-ic">&#128202;</div><div><div class="li-t">Reporte de vulnerabilidades</div><div class="li-d">Entregamos un reporte ejecutivo con hallazgos, riesgo y plan de remediacion priorizado.</div></div></div>
+        <div class="li-item"><div class="li-ic">&#9881;</div><div><div class="li-t">Configuracion documentada</div><div class="li-d">Todo lo que configuramos queda documentado. Nunca quedas atrapado sin saber que hay en tu red.</div></div></div>
+        <div class="li-item"><div class="li-ic">&#128260;</div><div><div class="li-t">Actualizaciones y parches</div><div class="li-d">Mantenemos el firmware de tu equipamiento actualizado contra las vulnerabilidades conocidas.</div></div></div>
+        <div class="li-item"><div class="li-ic">&#128222;</div><div><div class="li-t">Soporte continuo</div><div class="li-d">Ante cualquier incidente de red, respondemos en menos de 4 horas con solucion en sitio o remota.</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:0">
+  <div class="cnt">
+    <div class="cta-b rv">
+      <h2>&#191;Sabes que tan segura esta tu red?</h2>
+      <p>Agenda un analisis de vulnerabilidades gratuito. Sin compromiso, con resultados concretos.</p>
+      <div class="cta-btns">
+        <a href="contacto.html" class="btn btn-y">&#128274; Analizar mi red</a>
+        <a href="tel:7773455468" class="btn btn-yb">Llamar: (777) 345-5468</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="f-logo"><img src="Gemini_Generated_Image_4tzenf4tzenf4tze.png" alt="BreadTeach Logo"></div>
+  <p>&#169; 2026 BreadTeach &middot; Servicios Integrales de Soporte y Tecnologia &middot; Cuernavaca, Morelos, Mexico</p>
+</footer>
+<script>
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')})},{threshold:.07});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+const nb=document.getElementById('nb');
+window.addEventListener('scroll',()=>{nb.style.background=scrollY>60?'rgba(13,17,23,.97)':'rgba(13,17,23,.85)';nb.style.boxShadow=scrollY>60?'0 4px 20px rgba(0,0,0,.4)':'none';},{passive:true});
+const hamBtn=document.getElementById('hamBtn'),mobileNav=document.getElementById('mobileNav'),mClose=document.getElementById('mClose');
+hamBtn.addEventListener('click',()=>mobileNav.classList.add('open'));
+mClose.addEventListener('click',()=>mobileNav.classList.remove('open'));
+mobileNav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mobileNav.classList.remove('open')));
+</script>
+</body>
+</html>

@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Desarrollo Web y SEO - BreadTeach</title>
+<meta name="description" content="Diseno y desarrollo de sitios web modernos, tiendas en linea, landing pages y estrategia SEO en Cuernavaca, Morelos. BreadTeach, presencia digital profesional.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+:root{--blue:#29a0d3;--blue-l:#4bb3e0;--blue-d:#1c81ac;--orange:#f39200;--orange-l:#faad33;--b0:#0d1117;--b1:#161b22;--b2:#1c2128;--b3:#21262d;--t0:#e6edf3;--t1:#8b949e;--t2:#6e7681;--border:rgba(255,255,255,.07)}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--b0);color:var(--t0);overflow-x:hidden}
+nav{position:fixed;top:0;width:100%;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:.85rem 2rem;background:rgba(13,17,23,.85);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);transition:all .3s}
+.logo{display:flex;align-items:center;text-decoration:none}.logo img{height:40px;width:auto;object-fit:contain}
+.nav-links{display:flex;gap:2rem;list-style:none;align-items:center}
+.nav-links a{color:var(--t1);text-decoration:none;font-size:.875rem;font-weight:600;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--blue)}
+.dropdown{position:relative}.dropdown>a{display:flex;align-items:center;gap:.3rem}
+.dropdown-menu{display:none;position:absolute;top:100%;left:0;padding-top:.75rem;list-style:none;flex-direction:column;z-index:100;min-width:240px}
+.dropdown:hover .dropdown-menu{display:flex}
+.dropdown-menu-inner{background:var(--b1);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:.5rem 0;box-shadow:0 16px 40px rgba(0,0,0,.6);width:100%;position:relative}
+.dropdown-menu-inner::before{content:'';position:absolute;top:-6px;left:18px;width:12px;height:12px;background:var(--b1);border-left:1px solid rgba(255,255,255,.08);border-top:1px solid rgba(255,255,255,.08);transform:rotate(45deg)}
+.dropdown-menu li a{display:block;padding:.72rem 1.4rem;font-size:.83rem;font-weight:500;color:var(--t1);transition:all .18s;border-left:2px solid transparent;text-decoration:none}
+.dropdown-menu li a:hover,.dropdown-menu li a.active{background:rgba(41,160,211,.08);color:var(--blue);border-left-color:var(--blue);padding-left:1.6rem}
+.btn{display:inline-flex;align-items:center;gap:.35rem;padding:.58rem 1.2rem;border-radius:8px;font-size:.875rem;font-weight:700;cursor:pointer;text-decoration:none;transition:all .2s;border:none;font-family:inherit;line-height:1}
+.btn-y{background:var(--orange);color:#fff}.btn-y:hover{background:var(--orange-l);transform:translateY(-2px);box-shadow:0 8px 24px rgba(243,146,0,.35)}
+.btn-yb{background:transparent;color:var(--blue);border:1.5px solid var(--blue)}.btn-yb:hover{background:rgba(41,160,211,.1);transform:translateY(-2px)}
+.cnt{max-width:1200px;margin:0 auto;width:100%;padding:0 1rem}
+/* BANNER */
+.svc-banner{min-height:55vh;display:flex;align-items:center;padding:8rem 2rem 4rem;position:relative;overflow:hidden;background:linear-gradient(135deg,var(--b0) 0%,var(--b1) 100%)}
+.svc-banner::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(41,160,211,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(41,160,211,.04) 1px,transparent 1px);background-size:58px 58px}
+.banner-glow{position:absolute;width:700px;height:700px;background:radial-gradient(circle,rgba(243,146,0,.08) 0%,rgba(41,160,211,.08) 50%,transparent 70%);top:50%;right:-10%;transform:translateY(-50%)}
+.banner-inner{position:relative;z-index:1;max-width:800px}
+.breadcrumb{display:flex;align-items:center;gap:.5rem;margin-bottom:1.5rem;font-size:.8rem;color:var(--t2)}
+.breadcrumb a{color:var(--blue);text-decoration:none}.breadcrumb a:hover{text-decoration:underline}
+.banner-tag{color:var(--orange);font-size:.75rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:.6rem}
+.banner-inner h1{font-size:clamp(2rem,4vw,3.2rem);font-weight:800;letter-spacing:-.03em;line-height:1.1;margin-bottom:1rem}
+.amb{color:var(--blue)}.ambo{color:var(--orange)}
+.banner-inner p{color:var(--t1);font-size:1.05rem;line-height:1.8;max-width:650px}
+.banner-btns{display:flex;gap:.85rem;flex-wrap:wrap;margin-top:2rem}
+/* SECTIONS */
+.sec{padding:5rem 0}.wsec{padding:5rem 0;background:linear-gradient(180deg,rgba(41,160,211,.03),rgba(41,160,211,.05) 50%,rgba(41,160,211,.03))}
+.s-tag{color:var(--orange);font-size:.75rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:.55rem}
+h2{font-size:clamp(1.6rem,2.5vw,2.2rem);font-weight:800;letter-spacing:-.03em;margin-bottom:.8rem;color:var(--t0)}
+.s-sub{color:var(--t1);font-size:.96rem;line-height:1.82;max-width:540px;margin-bottom:2.4rem}
+.ctr{text-align:center}.ctr .s-sub{margin:0 auto 2.4rem}
+/* FEATURES */
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.feat{background:var(--b2);border:1px solid var(--border);border-radius:13px;padding:1.8rem 1.5rem;transition:all .3s}
+.feat:hover{border-color:rgba(41,160,211,.25);transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.3)}
+.feat-ic{font-size:2rem;margin-bottom:1rem;display:block}
+.feat-t{font-weight:700;font-size:.95rem;margin-bottom:.5rem;color:var(--t0)}
+.feat-d{font-size:.82rem;color:var(--t1);line-height:1.7}
+/* PROCESS */
+.proc-web{display:grid;grid-template-columns:repeat(5,1fr);gap:.8rem;position:relative}
+.proc-web::before{content:'';position:absolute;top:26px;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,rgba(41,160,211,.3),rgba(41,160,211,.3),transparent)}
+.pw-step{text-align:center;padding:1rem .8rem}
+.pw-n{width:52px;height:52px;border-radius:50%;background:var(--b2);border:2px solid var(--orange);color:var(--orange);font-size:1.2rem;font-weight:800;display:grid;place-items:center;margin:0 auto 1rem;position:relative;z-index:1;box-shadow:0 4px 20px rgba(243,146,0,.2)}
+.pw-t{font-weight:700;font-size:.8rem;color:var(--t0);margin-bottom:.3rem}
+.pw-d{font-size:.75rem;color:var(--t1);line-height:1.6}
+/* SEO SECTION */
+.seo-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.seo-tags{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.2rem}
+.tag{background:rgba(41,160,211,.1);border:1px solid rgba(41,160,211,.2);color:var(--blue-l);padding:.3rem .85rem;border-radius:100px;font-size:.78rem;font-weight:600}
+.seo-bars{display:flex;flex-direction:column;gap:.85rem;margin-top:1rem}
+.seo-bar-wrap{display:flex;flex-direction:column;gap:.3rem}
+.seo-bar-label{display:flex;justify-content:space-between;font-size:.78rem;color:var(--t1);font-weight:600}
+.seo-bar-track{height:6px;background:var(--b3);border-radius:3px;overflow:hidden}
+.seo-bar-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--blue),var(--blue-l))}
+/* PACKAGES */
+.paq-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.paq{background:var(--b2);border:1px solid var(--border);border-radius:16px;padding:2rem 1.5rem;position:relative;transition:all .3s}
+.paq.dest{border-color:rgba(41,160,211,.35);box-shadow:0 0 0 1px rgba(41,160,211,.15),0 20px 50px rgba(0,0,0,.4)}
+.paq-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:linear-gradient(90deg,var(--blue),var(--blue-l));color:#fff;font-size:.7rem;font-weight:700;padding:.25rem .8rem;border-radius:100px;white-space:nowrap}
+.paq-ic{font-size:1.8rem;margin-bottom:.8rem}
+.paq-t{font-weight:800;font-size:1.1rem;margin-bottom:.3rem;color:var(--t0)}
+.paq-d{font-size:.8rem;color:var(--t1);margin-bottom:1.2rem;line-height:1.6}
+.paq-list{list-style:none;display:flex;flex-direction:column;gap:.6rem;margin-bottom:1.5rem}
+.paq-list li{font-size:.8rem;color:var(--t1);display:flex;gap:.5rem;align-items:flex-start}
+.paq-list li::before{content:'\2713';color:var(--blue);font-weight:700;flex-shrink:0}
+/* CTA */
+.cta-b{background:linear-gradient(135deg,rgba(41,160,211,.08),rgba(41,160,211,.04) 60%,rgba(243,146,0,.06));border:1px solid rgba(41,160,211,.15);border-radius:20px;padding:3.5rem 2.5rem;text-align:center;position:relative;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.3)}
+.cta-b::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 65% 90% at 50% 50%,rgba(41,160,211,.04),transparent);pointer-events:none}
+.cta-b h2,.cta-b p,.cta-btns{position:relative}
+.cta-b p{color:var(--t1);margin:.7rem 0 2rem;font-size:.96rem}
+.cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+/* FOOTER */
+footer{padding:2.5rem 2rem;text-align:center;border-top:1px solid var(--border);background:var(--b1)}
+.f-logo{display:flex;align-items:center;justify-content:center;margin-bottom:1rem}
+.f-logo img{height:40px;width:auto;object-fit:contain}
+footer p{color:var(--t2);font-size:.77rem}
+/* REVEAL */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}.rv.on{opacity:1;transform:none}
+/* MOBILE */
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:.3rem;background:none;border:none}
+.ham span{display:block;width:22px;height:2px;background:var(--t0);border-radius:2px}
+.mobile-nav{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(13,17,23,.97);z-index:999;padding:5rem 2rem 2rem;flex-direction:column;gap:1.5rem}
+.mobile-nav.open{display:flex}
+.mobile-nav a{color:var(--t0);font-size:1.1rem;font-weight:700;text-decoration:none;padding:.5rem 0;border-bottom:1px solid var(--border)}
+.mobile-nav a:hover{color:var(--blue)}.m-close{position:absolute;top:1.2rem;right:1.5rem;background:none;border:none;color:var(--t0);font-size:1.8rem;cursor:pointer}
+@media(max-width:940px){.nav-links{display:none}.ham{display:flex}.feat-grid{grid-template-columns:1fr 1fr}.seo-grid{grid-template-columns:1fr;gap:2.5rem}.paq-grid{grid-template-columns:1fr}.proc-web{grid-template-columns:1fr 1fr}.proc-web::before{display:none}}
+@media(max-width:540px){.feat-grid{grid-template-columns:1fr}.svc-banner{padding:7rem 1.25rem 3rem}.cta-b{padding:2.5rem 1.5rem}}
+</style>
+</head>
+<body>
+
+<nav id="nb">
+  <a class="logo" href="index.html"><img src="Gemini_Generated_Image_4tzenf4tzenf4tze.png" alt="BreadTeach Logo"></a>
+  <ul class="nav-links">
+    <li class="dropdown">
+      <a href="servicios.html" class="active">Servicios &#9660;</a>
+      <ul class="dropdown-menu">
+        <div class="dropdown-menu-inner">
+          <li><a href="soporte.html">&#128421; Soporte y Mantenimiento</a></li>
+          <li><a href="redes.html">&#127760; Redes y Seguridad</a></li>
+          <li><a href="servidores.html">&#9729; Servidores Cloud / On-Premise</a></li>
+          <li><a href="web.html" class="active">&#128187; Desarrollo Web</a></li>
+        </div>
+      </ul>
+    </li>
+    <li><a href="nosotros.html">Nosotros</a></li>
+    <li><a href="nosotros.html#proceso">Proceso</a></li>
+    <li><a href="contacto.html">Contacto</a></li>
+  </ul>
+  <a href="contacto.html" class="btn btn-y">Cotiza gratis &#8594;</a>
+  <button class="ham" id="hamBtn"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="mobile-nav" id="mobileNav">
+  <button class="m-close" id="mClose">&#10005;</button>
+  <a href="servicios.html">Servicios</a>
+  <a href="soporte.html">&mdash; Soporte y Mantenimiento</a>
+  <a href="redes.html">&mdash; Redes y Seguridad</a>
+  <a href="servidores.html">&mdash; Servidores Cloud / On-Premise</a>
+  <a href="web.html">&mdash; Desarrollo Web</a>
+  <a href="nosotros.html">Nosotros</a>
+  <a href="nosotros.html#proceso">Proceso</a>
+  <a href="contacto.html">Contacto</a>
+</div>
+
+<!-- BANNER -->
+<section class="svc-banner">
+  <div class="banner-glow"></div>
+  <div class="cnt">
+    <div class="banner-inner">
+      <div class="breadcrumb">
+        <a href="index.html">Inicio</a><span>&#8250;</span>
+        <a href="servicios.html">Servicios</a><span>&#8250;</span>
+        <span>Desarrollo Web</span>
+      </div>
+      <div class="banner-tag">Presencia digital</div>
+      <h1>Desarrollo <span class="amb">Web</span> y <span class="ambo">SEO</span></h1>
+      <p>Creamos sitios web que no solo se ven bien &mdash; convierten visitantes en clientes. Diseno moderno, codigo limpio, velocidad optimizada y posicionamiento en buscadores incluido.</p>
+      <div class="banner-btns">
+        <a href="contacto.html" class="btn btn-y">&#128187; Iniciar mi proyecto</a>
+        <a href="tel:7773455468" class="btn btn-yb">Llamar ahora</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS WEB -->
+<section class="sec">
+  <div class="cnt">
+    <div class="rv ctr" style="margin-bottom:3rem">
+      <div class="s-tag">Servicios web</div>
+      <h2>Todo para tu <span class="amb">presencia digital</span></h2>
+      <p class="s-sub ctr">Desde una landing page hasta una tienda en linea completa. Construimos con las tecnologias mas modernas y optimizadas.</p>
+    </div>
+    <div class="feat-grid rv">
+      <div class="feat">
+        <span class="feat-ic">&#127912;</span>
+        <div class="feat-t">Diseno Web a Medida</div>
+        <div class="feat-d">Disenos unicos que reflejan tu identidad de marca. Sin plantillas genericas &mdash; cada pixel pensado para tu negocio y publico objetivo.</div>
+      </div>
+      <div class="feat">
+        <span class="feat-ic">&#128241;</span>
+        <div class="feat-t">Diseno Responsivo</div>
+        <div class="feat-d">Tu sitio se ve perfecto en cualquier dispositivo: movil, tablet o desktop. Google premia los sitios responsivos con mejor posicionamiento.</div>
+      </div>
+      <div class="feat">
+        <span class="feat-ic">&#128722;</span>
+        <div class="feat-t">Tiendas en Linea</div>
+        <div class="feat-d">E-commerce con carrito, pagos integrados (MercadoPago, PayPal, Stripe), gestion de inventario y panel de administracion completo.</div>
+      </div>
+      <div class="feat">
+        <span class="feat-ic">&#128640;</span>
+        <div class="feat-t">Landing Pages</div>
+        <div class="feat-d">Paginas de aterrizaje optimizadas para conversion. Ideales para campanas publicitarias y captacion de leads con alta efectividad.</div>
+      </div>
+      <div class="feat">
+        <span class="feat-ic">&#128200;</span>
+        <div class="feat-t">SEO y Posicionamiento</div>
+        <div class="feat-d">Optimizacion tecnica, contenido estrategico y link building para posicionar tu sitio en los primeros resultados de Google.</div>
+      </div>
+      <div class="feat">
+        <span class="feat-ic">&#128296;</span>
+        <div class="feat-t">Mantenimiento Web</div>
+        <div class="feat-d">Actualizaciones, respaldos, seguridad, monitoreo de uptime y soporte tecnico continuo para que tu sitio siempre funcione.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESO -->
+<section class="wsec">
+  <div class="cnt">
+    <div class="rv ctr" style="margin-bottom:3rem">
+      <div class="s-tag">Nuestro proceso</div>
+      <h2>De la idea al sitio en <span class="amb">5 pasos</span></h2>
+      <p class="s-sub ctr">Proceso agil y transparente. Sabras exactamente en que etapa esta tu proyecto en todo momento.</p>
+    </div>
+    <div class="proc-web rv">
+      <div class="pw-step">
+        <div class="pw-n">1</div>
+        <div class="pw-t">Brief</div>
+        <div class="pw-d">Entendemos tu negocio, objetivos y publico objetivo</div>
+      </div>
+      <div class="pw-step">
+        <div class="pw-n">2</div>
+        <div class="pw-t">Diseno</div>
+        <div class="pw-d">Prototipo visual y aprobacion antes de desarrollar</div>
+      </div>
+      <div class="pw-step">
+        <div class="pw-n">3</div>
+        <div class="pw-t">Desarrollo</div>
+        <div class="pw-d">Programacion con codigo limpio, veloz y seguro</div>
+      </div>
+      <div class="pw-step">
+        <div class="pw-n">4</div>
+        <div class="pw-t">SEO</div>
+        <div class="pw-d">Optimizacion tecnica y de contenido para buscadores</div>
+      </div>
+      <div class="pw-step">
+        <div class="pw-n">5</div>
+        <div class="pw-t">Lanzamiento</div>
+        <div class="pw-d">Publicacion, capacitacion y soporte post-entrega</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEO -->
+<section class="sec">
+  <div class="cnt">
+    <div class="seo-grid">
+      <div class="rv">
+        <div class="s-tag">SEO y visibilidad</div>
+        <h2>Mas visitas, mas <span class="amb">clientes</span></h2>
+        <p class="s-sub">El 93% de las experiencias online comienza en un buscador. Si no apareces en Google, no existes para tus clientes potenciales.</p>
+        <div class="seo-tags">
+          <span class="tag">SEO Tecnico</span>
+          <span class="tag">Core Web Vitals</span>
+          <span class="tag">Schema Markup</span>
+          <span class="tag">Link Building</span>
+          <span class="tag">Google Search Console</span>
+          <span class="tag">Google Analytics</span>
+          <span class="tag">Velocidad de carga</span>
+          <span class="tag">SEO Local</span>
+        </div>
+      </div>
+      <div class="rv">
+        <div class="s-tag">Resultados tipicos</div>
+        <div class="seo-bars">
+          <div class="seo-bar-wrap">
+            <div class="seo-bar-label"><span>Velocidad de carga</span><span style="color:var(--blue)">95/100</span></div>
+            <div class="seo-bar-track"><div class="seo-bar-fill" style="width:95%"></div></div>
+          </div>
+          <div class="seo-bar-wrap">
+            <div class="seo-bar-label"><span>Puntuacion SEO</span><span style="color:var(--blue)">90/100</span></div>
+            <div class="seo-bar-track"><div class="seo-bar-fill" style="width:90%"></div></div>
+          </div>
+          <div class="seo-bar-wrap">
+            <div class="seo-bar-label"><span>Accesibilidad</span><span style="color:var(--blue)">98/100</span></div>
+            <div class="seo-bar-track"><div class="seo-bar-fill" style="width:98%"></div></div>
+          </div>
+          <div class="seo-bar-wrap">
+            <div class="seo-bar-label"><span>Buenas practicas</span><span style="color:var(--blue)">100/100</span></div>
+            <div class="seo-bar-track"><div class="seo-bar-fill" style="width:100%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAQUETES -->
+<section class="wsec">
+  <div class="cnt">
+    <div class="rv ctr" style="margin-bottom:3rem">
+      <div class="s-tag">Paquetes</div>
+      <h2>Elige tu paquete <span class="amb">web</span></h2>
+      <p class="s-sub ctr">Opciones para cada etapa de tu negocio. Todos incluyen diseno responsivo y optimizacion basica de SEO.</p>
+    </div>
+    <div class="paq-grid rv">
+      <div class="paq">
+        <div class="paq-ic">&#127807;</div>
+        <div class="paq-t">Starter</div>
+        <div class="paq-d">Ideal para negocios que arrancan su presencia digital.</div>
+        <ul class="paq-list">
+          <li>Landing page de 1 pagina</li>
+          <li>Diseno responsivo</li>
+          <li>Formulario de contacto</li>
+          <li>SEO basico on-page</li>
+          <li>Hosting 1 ano incluido</li>
+          <li>1 mes de soporte</li>
+        </ul>
+        <a href="contacto.html" class="btn btn-yb" style="width:100%;justify-content:center">Cotizar</a>
+      </div>
+      <div class="paq dest">
+        <div class="paq-badge">Mas solicitado</div>
+        <div class="paq-ic">&#128640;</div>
+        <div class="paq-t">Profesional</div>
+        <div class="paq-d">Para empresas que quieren una presencia solida y profesional.</div>
+        <ul class="paq-list">
+          <li>Sitio hasta 8 paginas</li>
+          <li>Diseno personalizado a medida</li>
+          <li>Blog integrado</li>
+          <li>SEO completo + Google Analytics</li>
+          <li>Velocidad optimizada</li>
+          <li>Hosting + dominio 1 ano</li>
+          <li>3 meses de soporte</li>
+        </ul>
+        <a href="contacto.html" class="btn btn-y" style="width:100%;justify-content:center">Cotizar</a>
+      </div>
+      <div class="paq">
+        <div class="paq-ic">&#127978;</div>
+        <div class="paq-t">E-Commerce</div>
+        <div class="paq-d">Tienda en linea completa lista para vender desde el dia 1.</div>
+        <ul class="paq-list">
+          <li>Tienda con catalogo ilimitado</li>
+          <li>Pagos con MercadoPago / PayPal</li>
+          <li>Panel de administracion</li>
+          <li>SEO para e-commerce</li>
+          <li>Integracion con redes sociales</li>
+          <li>Capacitacion de uso incluida</li>
+          <li>6 meses de soporte</li>
+        </ul>
+        <a href="contacto.html" class="btn btn-yb" style="width:100%;justify-content:center">Cotizar</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="sec" style="padding-top:0">
+  <div class="cnt">
+    <div class="cta-b rv">
+      <h2>&#191;Tu sitio web ya esta quedando <span class="amb">atras</span>?</h2>
+      <p>Analizamos tu sitio actual sin costo y te decimos exactamente que mejorar para conseguir mas clientes.</p>
+      <div class="cta-btns">
+        <a href="contacto.html" class="btn btn-y">&#128269; Analizar mi sitio web</a>
+        <a href="tel:7773455468" class="btn btn-yb">Llamar: (777) 345-5468</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="f-logo"><img src="Gemini_Generated_Image_4tzenf4tzenf4tze.png" alt="BreadTeach Logo"></div>
+  <p>&#169; 2026 BreadTeach &middot; Servicios Integrales de Soporte y Tecnologia &middot; Cuernavaca, Morelos, Mexico</p>
+</footer>
+
+<script>
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')})},{threshold:.07});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+const nb=document.getElementById('nb');
+window.addEventListener('scroll',()=>{
+  nb.style.background=scrollY>60?'rgba(13,17,23,.97)':'rgba(13,17,23,.85)';
+  nb.style.boxShadow=scrollY>60?'0 4px 20px rgba(0,0,0,.4)':'none';
+},{passive:true});
+const hamBtn=document.getElementById('hamBtn'),mobileNav=document.getElementById('mobileNav'),mClose=document.getElementById('mClose');
+hamBtn.addEventListener('click',()=>mobileNav.classList.add('open'));
+mClose.addEventListener('click',()=>mobileNav.classList.remove('open'));
+mobileNav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mobileNav.classList.remove('open')));
+</script>
+</body>
+</html>

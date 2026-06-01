@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BreadTeach - Soporte y Tecnología Integral</title>
+<meta name="description" content="BreadTeach ofrece servicios integrales de tecnología: soporte técnico, redes, servidores, desarrollo web, SEO y automatizaciones en Cuernavaca, Morelos.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+:root{
+  --blue: #29a0d3;
+  --blue-l: #4bb3e0;
+  --blue-d: #1c81ac;
+  --orange: #f39200;
+  --orange-l: #faad33;
+  --orange-d: #d67a00;
+
+  /* Dark Theme */
+  --b0: #0d1117;
+  --b1: #161b22;
+  --b2: #1c2128;
+  --b3: #21262d;
+  --t0: #e6edf3;
+  --t1: #8b949e;
+  --t2: #6e7681;
+  --border: rgba(255,255,255,.07);
+
+  --bs: 0 12px 30px rgba(0,0,0,.4);
+}
+body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--b0);color:var(--t0);overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;width:100%;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:.85rem 2rem;background:rgba(13,17,23,.85);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);transition:all .3s}
+.logo{display:flex;align-items:center;text-decoration:none}
+.logo img{height:40px;width:auto;object-fit:contain}
+.nav-links{display:flex;gap:2rem;list-style:none;align-items:center}
+.nav-links a{color:var(--t1);text-decoration:none;font-size:.875rem;font-weight:600;transition:color .2s}
+.nav-links a:hover{color:var(--blue)}
+
+/* DROPDOWN */
+.dropdown{position:relative}
+.dropdown>a{display:flex;align-items:center;gap:.3rem}
+.dropdown-menu{display:none;position:absolute;top:100%;left:0;padding-top:.75rem;list-style:none;flex-direction:column;z-index:100;min-width:240px}
+.dropdown:hover .dropdown-menu{display:flex}
+.dropdown-menu-inner{background:var(--b1);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:.5rem 0;box-shadow:0 16px 40px rgba(0,0,0,.6);width:100%;position:relative}
+.dropdown-menu-inner::before{content:'';position:absolute;top:-6px;left:18px;width:12px;height:12px;background:var(--b1);border-left:1px solid rgba(255,255,255,.08);border-top:1px solid rgba(255,255,255,.08);transform:rotate(45deg)}
+.dropdown-menu li a{display:block;padding:.72rem 1.4rem;font-size:.83rem;font-weight:500;color:var(--t1);transition:all .18s;border-left:2px solid transparent;text-decoration:none}
+.dropdown-menu li a:hover,.dropdown-menu li a.active{background:rgba(41,160,211,.08);color:var(--blue);border-left-color:var(--blue);padding-left:1.6rem}
+
+/* BTN */
+.btn{display:inline-flex;align-items:center;gap:.35rem;padding:.58rem 1.2rem;border-radius:8px;font-size:.875rem;font-weight:700;cursor:pointer;text-decoration:none;transition:all .2s;border:none;font-family:inherit;line-height:1}
+.btn-y{background:var(--orange);color:#fff}
+.btn-y:hover{background:var(--orange-l);transform:translateY(-2px);box-shadow:0 8px 24px rgba(243,146,0,.35)}
+.btn-yb{background:transparent;color:var(--blue);border:1.5px solid var(--blue)}
+.btn-yb:hover{background:rgba(41,160,211,.1);transform:translateY(-2px)}
+
+/* HERO */
+#hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:7rem 2rem 4rem}
+.h-glow{position:absolute;width:900px;height:900px;background:radial-gradient(circle,rgba(41,160,211,.1) 0%,transparent 60%);top:50%;right:-8%;transform:translateY(-50%);pointer-events:none}
+.h-glow2{position:absolute;width:600px;height:600px;background:radial-gradient(circle,rgba(243,146,0,.07) 0%,transparent 65%);bottom:-15%;left:-8%;pointer-events:none}
+.grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(41,160,211,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(41,160,211,.05) 1px,transparent 1px);background-size:58px 58px;mask-image:radial-gradient(ellipse 90% 80% at 60% 50%,black 30%,transparent 80%)}
+.cnt{max-width:1200px;margin:0 auto;width:100%;padding:0 1rem}
+.hero-wrap{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:center;position:relative;z-index:1}
+.hero-left>*{animation:fadeup .6s ease both}
+.hero-left>:nth-child(1){animation-delay:.05s}
+.hero-left>:nth-child(2){animation-delay:.18s}
+.hero-left>:nth-child(3){animation-delay:.3s}
+.hero-left>:nth-child(4){animation-delay:.44s}
+.hero-left>:nth-child(5){animation-delay:.58s}
+@keyframes fadeup{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.badge{display:inline-flex;align-items:center;gap:.48rem;padding:.3rem .9rem;border-radius:100px;background:rgba(41,160,211,.12);border:1px solid rgba(41,160,211,.25);color:var(--blue-l);font-size:.76rem;font-weight:700;margin-bottom:1.4rem;letter-spacing:.015em}
+.bdot{width:5px;height:5px;border-radius:50%;background:var(--blue);animation:bpulse 2s ease-in-out infinite;flex-shrink:0}
+@keyframes bpulse{0%,100%{opacity:1}50%{opacity:.3}}
+h1{font-size:clamp(2rem,4vw,3.5rem);font-weight:800;line-height:1.1;letter-spacing:-.03em;margin-bottom:1.35rem;color:var(--t0)}
+.amb{color:var(--blue)}
+.h-sub{color:var(--t1);font-size:1.05rem;line-height:1.8;margin-bottom:2.2rem;max-width:470px}
+.h-btns{display:flex;gap:.85rem;flex-wrap:wrap;margin-bottom:2.8rem}
+.h-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem}
+.hs{background:var(--b2);border:1px solid var(--border);border-radius:11px;padding:1rem .9rem;box-shadow:0 4px 15px rgba(0,0,0,.2)}
+.hs-n{font-size:1.7rem;font-weight:800;color:var(--orange);line-height:1.1}
+.hs-l{font-size:.73rem;color:var(--t1);margin-top:.25rem}
+
+/* ORBIT */
+.orbit-wrap{display:flex;justify-content:center;align-items:center;animation:fadeup .8s ease .3s both}
+.orb-root{position:relative;width:370px;height:370px}
+.orb-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:3;width:90px;height:90px;background:linear-gradient(140deg,var(--blue) 0%,var(--blue-d) 100%);border-radius:22px;display:grid;place-items:center;font-size:2.3rem;color:white;box-shadow:0 0 0 14px rgba(41,160,211,.08),0 0 0 28px rgba(41,160,211,.04),0 0 70px rgba(41,160,211,.3)}
+.orb-ring{position:absolute;top:50%;left:50%;border-radius:50%;border:1px dashed rgba(41,160,211,.2)}
+.orb-ring:nth-child(2){width:168px;height:168px;animation:ospin 7s linear infinite}
+.orb-ring:nth-child(3){width:262px;height:262px;animation:ospin 12s linear infinite reverse;border-color:rgba(41,160,211,.13)}
+.orb-ring:nth-child(4){width:358px;height:358px;animation:ospin 19s linear infinite;border-color:rgba(41,160,211,.08)}
+@keyframes ospin{from{transform:translate(-50%,-50%) rotate(0)}to{transform:translate(-50%,-50%) rotate(360deg)}}
+.orb-ic{position:absolute;width:38px;height:38px;background:var(--b2);border:1px solid rgba(41,160,211,.3);border-radius:9px;display:grid;place-items:center;font-size:1.05rem;top:-19px;left:50%;transform:translateX(-50%);box-shadow:0 4px 10px rgba(0,0,0,.3)}
+
+/* SECTIONS */
+.sec{padding:5.5rem 0}
+.wsec{padding:5.5rem 0;background:linear-gradient(180deg,rgba(41,160,211,.03),rgba(41,160,211,.05) 50%,rgba(41,160,211,.03))}
+.csec{background:var(--b1)}
+.s-tag{color:var(--orange);font-size:.75rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:.55rem}
+h2{font-size:clamp(1.7rem,2.8vw,2.45rem);font-weight:800;letter-spacing:-.03em;margin-bottom:.8rem;color:var(--t0)}
+.s-sub{color:var(--t1);font-size:.96rem;line-height:1.82;max-width:540px;margin-bottom:2.4rem}
+.ctr{text-align:center}.ctr .s-sub{margin:0 auto 2.4rem}
+
+/* SERVICES */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.15rem}
+.svc{background:var(--b2);border:1px solid var(--border);border-radius:13px;padding:1.5rem;transition:all .3s;position:relative;overflow:hidden;cursor:pointer;box-shadow:0 4px 20px rgba(0,0,0,.2);text-decoration:none;display:block;color:inherit}
+.svc::before{content:'';position:absolute;top:0;left:20%;right:20%;height:2.5px;background:var(--blue);border-radius:0 0 4px 4px;opacity:0;transition:opacity .3s}
+.svc:hover{border-color:rgba(41,160,211,.3);transform:translateY(-5px);box-shadow:0 16px 40px rgba(0,0,0,.4)}
+.svc:hover::before{opacity:1}
+.svc-ic{font-size:1.7rem;margin-bottom:.8rem;display:block}
+.svc-t{font-weight:700;font-size:.875rem;margin-bottom:.45rem;line-height:1.35;color:var(--t0)}
+.svc-d{font-size:.8rem;color:var(--t1);line-height:1.67}
+.svc-arrow{font-size:.75rem;color:var(--blue);margin-top:.8rem;font-weight:600;opacity:0;transition:opacity .2s;display:block}
+.svc:hover .svc-arrow{opacity:1}
+
+/* CTA BANNER */
+.cta-b{background:linear-gradient(135deg,rgba(41,160,211,.08),rgba(41,160,211,.04) 60%,rgba(243,146,0,.06));border:1px solid rgba(41,160,211,.15);border-radius:20px;padding:3.5rem 2.5rem;text-align:center;position:relative;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.3)}
+.cta-b::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 65% 90% at 50% 50%,rgba(41,160,211,.04),transparent);pointer-events:none}
+.cta-b h2,.cta-b p,.cta-btns{position:relative}
+.cta-b p{color:var(--t1);margin:.7rem 0 2rem;font-size:.96rem}
+.cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+
+/* FOOTER */
+footer{padding:2.5rem 2rem;text-align:center;border-top:1px solid var(--border);background:var(--b1)}
+.f-logo{display:flex;align-items:center;justify-content:center;margin-bottom:1rem}
+.f-logo img{height:40px;width:auto;object-fit:contain}
+footer p{color:var(--t2);font-size:.77rem}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+.rv.on{opacity:1;transform:none}
+
+/* HAMBURGER */
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:.3rem;background:none;border:none}
+.ham span{display:block;width:22px;height:2px;background:var(--t0);border-radius:2px;transition:all .3s}
+.mobile-nav{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(13,17,23,.97);z-index:999;padding:5rem 2rem 2rem;flex-direction:column;gap:1.5rem}
+.mobile-nav.open{display:flex}
+.mobile-nav a{color:var(--t0);font-size:1.2rem;font-weight:700;text-decoration:none;padding:.5rem 0;border-bottom:1px solid var(--border)}
+.mobile-nav a:hover{color:var(--blue)}
+.m-close{position:absolute;top:1.2rem;right:1.5rem;background:none;border:none;color:var(--t0);font-size:1.8rem;cursor:pointer}
+
+/* RESPONSIVE */
+@media(max-width:940px){
+  .nav-links{display:none}
+  .ham{display:flex}
+  .hero-wrap{grid-template-columns:1fr}
+  .orbit-wrap{display:none}
+  .svc-grid{grid-template-columns:1fr 1fr}
+  .svc:last-child{grid-column:auto !important}
+}
+@media(max-width:540px){
+  #hero{padding:7rem 1.25rem 3rem}
+  .svc-grid{grid-template-columns:1fr}
+  .h-stats{grid-template-columns:1fr 1fr}
+  .cta-b{padding:2.5rem 1.5rem}
+  nav{padding:.75rem 1.25rem}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nb">
+  <a class="logo" href="index.html">
+    <img src="Gemini_Generated_Image_4tzenf4tzenf4tze.png" alt="BreadTeach Logo">
+  </a>
+  <ul class="nav-links">
+    <li class="dropdown">
+      <a href="servicios.html">Servicios ▾</a>
+      <ul class="dropdown-menu">
+        <div class="dropdown-menu-inner">
+          <li><a href="soporte.html">&#128421; Soporte y Mantenimiento</a></li>
+          <li><a href="redes.html">&#127760; Redes y Seguridad</a></li>
+          <li><a href="servidores.html">&#9729; Servidores Cloud / On-Premise</a></li>
+          <li><a href="web.html">&#128187; Desarrollo Web</a></li>
+        </div>
+      </ul>
+    </li>
+    <li><a href="nosotros.html">Nosotros</a></li>
+    <li><a href="nosotros.html#proceso">Proceso</a></li>
+    <li><a href="contacto.html">Contacto</a></li>
+  </ul>
+  <a href="contacto.html" class="btn btn-y">Cotiza gratis →</a>
+  <button class="ham" id="hamBtn" aria-label="Menú">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="m-close" id="mClose">✕</button>
+  <a href="servicios.html">Servicios</a>
+  <a href="soporte.html">— Soporte y Mantenimiento</a>
+  <a href="redes.html">— Redes y Seguridad</a>
+  <a href="servidores.html">— Servidores Cloud / On-Premise</a>
+  <a href="web.html">— Desarrollo Web</a>
+  <a href="nosotros.html">Nosotros</a>
+  <a href="nosotros.html#proceso">Proceso</a>
+  <a href="contacto.html">Contacto</a>
+  <a href="contacto.html" class="btn btn-y" style="text-align:center;margin-top:.5rem">Cotiza gratis →</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="h-glow"></div>
+  <div class="h-glow2"></div>
+  <div class="grid-bg"></div>
+  <div class="cnt">
+    <div class="hero-wrap">
+      <div class="hero-left">
+        <span class="badge"><span class="bdot"></span>Servicios Integrales de Tecnología</span>
+        <h1>Tu aliado en <span class="amb">tecnología</span> e innovación digital</h1>
+        <p class="h-sub">Transformamos la infraestructura de tu negocio. Soporte técnico, redes, servidores, desarrollo web, SEO y automatizaciones — todo en un solo lugar.</p>
+        <div class="h-btns">
+          <a href="contacto.html" class="btn btn-y">🚀 Solicitar cotización</a>
+          <a href="servicios.html" class="btn btn-yb">Ver servicios</a>
+        </div>
+        <div class="h-stats">
+          <div class="hs"><div class="hs-n">10+</div><div class="hs-l">Servicios especializados</div></div>
+          <div class="hs"><div class="hs-n">24/7</div><div class="hs-l">Soporte disponible</div></div>
+          <div class="hs"><div class="hs-n">100%</div><div class="hs-l">Compromiso total</div></div>
+        </div>
+      </div>
+      <div class="orbit-wrap">
+        <div class="orb-root">
+          <div class="orb-center">⚙️</div>
+          <div class="orb-ring"><div class="orb-ic">🔧</div></div>
+          <div class="orb-ring"><div class="orb-ic">🌐</div></div>
+          <div class="orb-ring"><div class="orb-ic">🔒</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="servicios" class="sec">
+  <div class="cnt">
+    <div class="rv">
+      <div class="s-tag">Lo que ofrecemos</div>
+      <h2>Soluciones tecnológicas <span class="amb">completas</span></h2>
+      <p class="s-sub">Cubrimos todo lo que tu empresa necesita, desde hardware y redes hasta presencia web y automatización de procesos.</p>
+    </div>
+    <div class="svc-grid rv">
+      <a href="soporte.html" class="svc"><span class="svc-ic">🖥️</span><div class="svc-t">Soporte y mantenimiento de equipos</div><div class="svc-d">Diagnóstico, reparación y mantenimiento preventivo y correctivo de computadoras y equipos de cómputo.</div><span class="svc-arrow">Ver más →</span></a>
+      <a href="redes.html" class="svc"><span class="svc-ic">🌐</span><div class="svc-t">Diseño e instalación de redes</div><div class="svc-d">Planificación, instalación y optimización de redes LAN/WAN para entornos empresariales y residenciales.</div><span class="svc-arrow">Ver más →</span></a>
+      <a href="redes.html" class="svc"><span class="svc-ic">🔒</span><div class="svc-t">Seguridad y cortafuegos</div><div class="svc-d">Configuración de firewalls, protección de datos y políticas de ciberseguridad para tu organización.</div><span class="svc-arrow">Ver más →</span></a>
+      <a href="servidores.html" class="svc"><span class="svc-ic">☁️</span><div class="svc-t">Servidores cloud &amp; on-premise</div><div class="svc-d">Administración de servidores en la nube y locales para máximo rendimiento y disponibilidad continua.</div><span class="svc-arrow">Ver más →</span></a>
+      <a href="soporte.html" class="svc"><span class="svc-ic">🎓</span><div class="svc-t">Capacitaciones técnicas</div><div class="svc-d">Formación personalizada para tu equipo en herramientas digitales, ciberseguridad y mejores prácticas.</div><span class="svc-arrow">Ver más →</span></a>
+      <a href="servicios.html" class="svc"><span class="svc-ic">🔍</span><div class="svc-t">Diagnóstico de necesidades</div><div class="svc-d">Evaluación integral de tu infraestructura con recomendaciones estratégicas de mejora y optimización.</div><span class="svc-arrow">Ver más →</span></a>
+      <a href="servicios.html" class="svc"><span class="svc-ic">📦</span><div class="svc-t">Venta e integración de hardware</div><div class="svc-d">Suministro e integración de switches, routers, access points y dispositivos de red de calidad.</div><span class="svc-arrow">Ver más →</span></a>
+      <a href="web.html" class="svc"><span class="svc-ic">💻</span><div class="svc-t">Creación y administración web</div><div class="svc-d">Diseño de sitios modernos y responsivos con mantenimiento, actualizaciones y hosting gestionado.</div><span class="svc-arrow">Ver más →</span></a>
+      <a href="web.html" class="svc"><span class="svc-ic">📈</span><div class="svc-t">Análisis SEO</div><div class="svc-d">Optimización para buscadores: mejora tu posición en Google y atrae más clientes de forma orgánica.</div><span class="svc-arrow">Ver más →</span></a>
+      <a href="servicios.html" class="svc" style="grid-column:2"><span class="svc-ic">⚡</span><div class="svc-t">Automatizaciones</div><div class="svc-d">Automatizamos procesos repetitivos de tu negocio para ahorrar tiempo, reducir errores y escalar operaciones.</div><span class="svc-arrow">Ver más →</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="sec">
+  <div class="cnt">
+    <div class="cta-b rv">
+      <h2>¿Listo para dar el <span class="amb">salto digital</span>?</h2>
+      <p>Primera consulta sin costo. Cuéntanos tu reto y encontramos la solución ideal para tu negocio.</p>
+      <div class="cta-btns">
+        <a href="contacto.html" class="btn btn-y">📞 Contáctanos ahora</a>
+        <a href="tel:7773455468" class="btn btn-yb">Llamar: (777) 345-5468</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="f-logo">
+    <img src="Gemini_Generated_Image_4tzenf4tzenf4tze.png" alt="BreadTeach Logo">
+  </div>
+  <p>© 2026 BreadTeach · Servicios Integrales de Soporte y Tecnología · Cuernavaca, Morelos, México</p>
+</footer>
+
+<script>
+const io=new IntersectionObserver(es=>{
+  es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')})
+},{threshold:.07});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+const nb=document.getElementById('nb');
+window.addEventListener('scroll',()=>{
+  nb.style.background=scrollY>60?'rgba(13,17,23,.97)':'rgba(13,17,23,.85)';
+  nb.style.boxShadow=scrollY>60?'0 4px 20px rgba(0,0,0,.4)':'none';
+},{passive:true});
+const hamBtn=document.getElementById('hamBtn');
+const mobileNav=document.getElementById('mobileNav');
+const mClose=document.getElementById('mClose');
+hamBtn.addEventListener('click',()=>mobileNav.classList.add('open'));
+mClose.addEventListener('click',()=>mobileNav.classList.remove('open'));
+mobileNav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mobileNav.classList.remove('open')));
+</script>
+</body>
+</html>

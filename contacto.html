@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contacto - BreadTeach</title>
+<meta name="description" content="Contáctanos en BreadTeach. Estamos en Cuernavaca, Morelos. Soporte técnico, redes, servidores y desarrollo web. Solicita tu cotización gratuita.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+:root{
+  --blue:#29a0d3;--blue-l:#4bb3e0;--blue-d:#1c81ac;
+  --orange:#f39200;--orange-l:#faad33;--orange-d:#d67a00;
+  --b0:#0d1117;--b1:#161b22;--b2:#1c2128;--b3:#21262d;
+  --t0:#e6edf3;--t1:#8b949e;--t2:#6e7681;
+  --border:rgba(255,255,255,.07);
+}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--b0);color:var(--t0);overflow-x:hidden}
+nav{position:fixed;top:0;width:100%;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:.85rem 2rem;background:rgba(13,17,23,.85);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);transition:all .3s}
+.logo{display:flex;align-items:center;text-decoration:none}.logo img{height:40px;width:auto;object-fit:contain}
+.nav-links{display:flex;gap:2rem;list-style:none;align-items:center}
+.nav-links a{color:var(--t1);text-decoration:none;font-size:.875rem;font-weight:600;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--blue)}
+.dropdown{position:relative}.dropdown>a{display:flex;align-items:center;gap:.3rem}
+.dropdown-menu{display:none;position:absolute;top:100%;left:0;padding-top:.75rem;list-style:none;flex-direction:column;z-index:100;min-width:240px}
+.dropdown:hover .dropdown-menu{display:flex}
+.dropdown-menu-inner{background:var(--b1);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:.5rem 0;box-shadow:0 16px 40px rgba(0,0,0,.6);width:100%;position:relative}
+.dropdown-menu-inner::before{content:'';position:absolute;top:-6px;left:18px;width:12px;height:12px;background:var(--b1);border-left:1px solid rgba(255,255,255,.08);border-top:1px solid rgba(255,255,255,.08);transform:rotate(45deg)}
+.dropdown-menu li a{display:block;padding:.72rem 1.4rem;font-size:.83rem;font-weight:500;color:var(--t1);transition:all .18s;border-left:2px solid transparent;text-decoration:none}
+.dropdown-menu li a:hover,.dropdown-menu li a.active{background:rgba(41,160,211,.08);color:var(--blue);border-left-color:var(--blue);padding-left:1.6rem}
+.btn{display:inline-flex;align-items:center;gap:.35rem;padding:.58rem 1.2rem;border-radius:8px;font-size:.875rem;font-weight:700;cursor:pointer;text-decoration:none;transition:all .2s;border:none;font-family:inherit;line-height:1}
+.btn-y{background:var(--orange);color:#fff}.btn-y:hover{background:var(--orange-l);transform:translateY(-2px);box-shadow:0 8px 24px rgba(243,146,0,.35)}
+.btn-yb{background:transparent;color:var(--blue);border:1.5px solid var(--blue)}.btn-yb:hover{background:rgba(41,160,211,.1);transform:translateY(-2px)}
+.cnt{max-width:1200px;margin:0 auto;width:100%;padding:0 1rem}
+/* BANNER */
+.svc-banner{min-height:45vh;display:flex;align-items:center;padding:8rem 2rem 4rem;position:relative;overflow:hidden;background:linear-gradient(135deg,var(--b0) 0%,var(--b1) 100%)}
+.svc-banner::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(41,160,211,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(41,160,211,.04) 1px,transparent 1px);background-size:58px 58px}
+.banner-glow{position:absolute;width:600px;height:600px;background:radial-gradient(circle,rgba(243,146,0,.07) 0%,rgba(41,160,211,.08) 50%,transparent 70%);top:50%;right:-5%;transform:translateY(-50%)}
+.banner-inner{position:relative;z-index:1;max-width:750px}
+.breadcrumb{display:flex;align-items:center;gap:.5rem;margin-bottom:1.5rem;font-size:.8rem;color:var(--t2)}
+.breadcrumb a{color:var(--blue);text-decoration:none}.breadcrumb a:hover{text-decoration:underline}
+.banner-tag{color:var(--orange);font-size:.75rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:.6rem}
+.banner-inner h1{font-size:clamp(2rem,4vw,3.2rem);font-weight:800;letter-spacing:-.03em;line-height:1.1;margin-bottom:1rem}
+.amb{color:var(--blue)}.banner-inner p{color:var(--t1);font-size:1.05rem;line-height:1.8;max-width:620px}
+/* MAIN CONTACT SECTION */
+.sec{padding:5rem 0}
+.contact-main{display:grid;grid-template-columns:1fr 1.3fr;gap:4rem;align-items:start}
+/* INFO SIDE */
+.s-tag{color:var(--orange);font-size:.75rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:.55rem}
+h2{font-size:clamp(1.6rem,2.5vw,2.2rem);font-weight:800;letter-spacing:-.03em;margin-bottom:.8rem;color:var(--t0)}
+.s-sub{color:var(--t1);font-size:.96rem;line-height:1.82;max-width:420px;margin-bottom:2rem}
+.c-info-list{display:flex;flex-direction:column;gap:1.1rem;margin-bottom:2rem}
+.ci{display:flex;gap:.9rem;align-items:center}
+.ci-ic{flex-shrink:0;width:48px;height:48px;background:rgba(41,160,211,.1);border:1px solid rgba(41,160,211,.15);border-radius:10px;display:grid;place-items:center;font-size:1.2rem}
+.ci-l{font-size:.72rem;color:var(--t2);line-height:1;font-weight:600;text-transform:uppercase;letter-spacing:.05em}
+.ci-v{font-weight:600;font-size:.9rem;margin-top:.25rem;color:var(--t0)}
+/* QUICK WAYS */
+.quick-title{font-size:.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--t2);margin-bottom:1rem}
+.quick-btns{display:flex;flex-direction:column;gap:.7rem}
+.quick-btn{display:flex;align-items:center;gap:.8rem;padding:.85rem 1.2rem;background:var(--b2);border:1px solid var(--border);border-radius:10px;text-decoration:none;color:var(--t0);transition:all .2s}
+.quick-btn:hover{border-color:rgba(41,160,211,.3);background:rgba(41,160,211,.05);transform:translateX(4px)}
+.qb-ic{width:36px;height:36px;border-radius:8px;display:grid;place-items:center;font-size:1.1rem;flex-shrink:0}
+.qb-ic.blue{background:rgba(41,160,211,.15)}
+.qb-ic.green{background:rgba(34,197,94,.15)}
+.qb-ic.orange{background:rgba(243,146,0,.15)}
+.qb-label{font-size:.72rem;color:var(--t2);line-height:1}
+.qb-val{font-weight:700;font-size:.85rem;margin-top:.2rem}
+/* FORM SIDE */
+.cf{background:var(--b2);border:1px solid var(--border);border-radius:20px;padding:2.5rem;box-shadow:0 20px 50px rgba(0,0,0,.35)}
+.cf-head{margin-bottom:1.8rem}
+.cf-head h3{font-size:1.2rem;font-weight:800;color:var(--t0);margin-bottom:.35rem}
+.cf-head p{font-size:.82rem;color:var(--t1)}
+.fg{margin-bottom:1rem}
+label{display:block;font-size:.77rem;color:var(--t1);margin-bottom:.38rem;font-weight:600}
+input,textarea,select{width:100%;background:var(--b3);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:.72rem .9rem;color:var(--t0);font-size:.875rem;font-family:inherit;outline:none;transition:border-color .2s,box-shadow .2s;appearance:none;-webkit-appearance:none}
+input:focus,textarea:focus,select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(41,160,211,.15)}
+input::placeholder,textarea::placeholder{color:var(--t2)}
+select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M5 6L0 0h10z' fill='%236e7681'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .9rem center;padding-right:2.4rem}
+select option{background:var(--b2);color:var(--t0)}
+textarea{height:100px;resize:vertical}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:.85rem}
+.submit-btn{width:100%;background:var(--blue);color:#fff;font-weight:700;border:none;padding:.85rem;border-radius:9px;cursor:pointer;font-size:.95rem;font-family:inherit;transition:all .25s;margin-top:.5rem;display:flex;align-items:center;justify-content:center;gap:.5rem}
+.submit-btn:hover{background:var(--blue-d);transform:translateY(-2px);box-shadow:0 8px 24px rgba(41,160,211,.35)}
+/* MAP STRIP */
+.map-strip{padding:3rem 0;background:var(--b1);border-top:1px solid var(--border)}
+.map-inner{display:flex;align-items:center;gap:2rem;flex-wrap:wrap}
+.map-ic{font-size:2.5rem;flex-shrink:0}
+.map-text h3{font-weight:700;font-size:1rem;color:var(--t0);margin-bottom:.3rem}
+.map-text p{font-size:.85rem;color:var(--t1);line-height:1.6}
+footer{padding:2.5rem 2rem;text-align:center;border-top:1px solid var(--border);background:var(--b1)}
+.f-logo{display:flex;align-items:center;justify-content:center;margin-bottom:1rem}
+.f-logo img{height:40px;width:auto;object-fit:contain}
+footer p{color:var(--t2);font-size:.77rem}
+.rv{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}.rv.on{opacity:1;transform:none}
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:.3rem;background:none;border:none}
+.ham span{display:block;width:22px;height:2px;background:var(--t0);border-radius:2px}
+.mobile-nav{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(13,17,23,.97);z-index:999;padding:5rem 2rem 2rem;flex-direction:column;gap:1.5rem}
+.mobile-nav.open{display:flex}
+.mobile-nav a{color:var(--t0);font-size:1.1rem;font-weight:700;text-decoration:none;padding:.5rem 0;border-bottom:1px solid var(--border)}
+.mobile-nav a:hover{color:var(--blue)}.m-close{position:absolute;top:1.2rem;right:1.5rem;background:none;border:none;color:var(--t0);font-size:1.8rem;cursor:pointer}
+@media(max-width:940px){.nav-links{display:none}.ham{display:flex}.contact-main{grid-template-columns:1fr;gap:2.5rem}}
+@media(max-width:540px){.svc-banner{padding:7rem 1.25rem 3rem}.frow{grid-template-columns:1fr}.cf{padding:1.75rem 1.25rem}}
+</style>
+</head>
+<body>
+
+<nav id="nb">
+  <a class="logo" href="index.html"><img src="Gemini_Generated_Image_4tzenf4tzenf4tze.png" alt="BreadTeach Logo"></a>
+  <ul class="nav-links">
+    <li class="dropdown">
+      <a href="servicios.html">Servicios ▾</a>
+      <ul class="dropdown-menu">
+        <div class="dropdown-menu-inner">
+          <li><a href="soporte.html">&#128421; Soporte y Mantenimiento</a></li>
+          <li><a href="redes.html">&#127760; Redes y Seguridad</a></li>
+          <li><a href="servidores.html">&#9729; Servidores Cloud / On-Premise</a></li>
+          <li><a href="web.html">&#128187; Desarrollo Web</a></li>
+        </div>
+      </ul>
+    </li>
+    <li><a href="nosotros.html">Nosotros</a></li>
+    <li><a href="nosotros.html#proceso">Proceso</a></li>
+    <li><a href="contacto.html" class="active">Contacto</a></li>
+  </ul>
+  <a href="contacto.html" class="btn btn-y">Cotiza gratis →</a>
+  <button class="ham" id="hamBtn"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="mobile-nav" id="mobileNav">
+  <button class="m-close" id="mClose">✕</button>
+  <a href="servicios.html">Servicios</a>
+  <a href="soporte.html">— Soporte y Mantenimiento</a>
+  <a href="redes.html">— Redes y Seguridad</a>
+  <a href="servidores.html">— Servidores Cloud / On-Premise</a>
+  <a href="web.html">— Desarrollo Web</a>
+  <a href="nosotros.html">Nosotros</a>
+  <a href="nosotros.html#proceso">Proceso</a>
+  <a href="contacto.html">Contacto</a>
+</div>
+
+<!-- BANNER -->
+<section class="svc-banner">
+  <div class="banner-glow"></div>
+  <div class="cnt">
+    <div class="banner-inner">
+      <div class="breadcrumb"><a href="index.html">Inicio</a><span>›</span><span>Contacto</span></div>
+      <div class="banner-tag">Hablemos</div>
+      <h1>Cuéntanos tu <span class="amb">proyecto</span></h1>
+      <p>Primera consulta sin costo. Estamos en Cuernavaca, Morelos y atendemos a toda la República Mexicana. Escríbenos y te respondemos a la brevedad.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section class="sec">
+  <div class="cnt">
+    <div class="contact-main rv">
+
+      <!-- LEFT: Info + quick contact -->
+      <div>
+        <div class="s-tag">Información de contacto</div>
+        <h2>Estamos <span class="amb">disponibles</span> para ti</h2>
+        <p class="s-sub">Elige la forma que más te convenga. Respondemos todos los canales con la misma rapidez y atención.</p>
+
+        <div class="c-info-list">
+          <div class="ci">
+            <div class="ci-ic">📞</div>
+            <div>
+              <div class="ci-l">Teléfono directo</div>
+              <div class="ci-v">(777) 345-5468</div>
+            </div>
+          </div>
+          <div class="ci">
+            <div class="ci-ic">✉️</div>
+            <div>
+              <div class="ci-l">Correo electrónico</div>
+              <div class="ci-v">b.avila@breadteach.com</div>
+            </div>
+          </div>
+          <div class="ci">
+            <div class="ci-ic">🌐</div>
+            <div>
+              <div class="ci-l">Sitio web</div>
+              <div class="ci-v">breadteach.com</div>
+            </div>
+          </div>
+          <div class="ci">
+            <div class="ci-ic">📍</div>
+            <div>
+              <div class="ci-l">Ubicación</div>
+              <div class="ci-v">Cuernavaca, Morelos · México</div>
+            </div>
+          </div>
+          <div class="ci">
+            <div class="ci-ic">🕐</div>
+            <div>
+              <div class="ci-l">Horario de atención</div>
+              <div class="ci-v">Lun–Vie 9:00–19:00 · Urgencias 24/7</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="quick-title">Contacto rápido</div>
+        <div class="quick-btns">
+          <a href="tel:7773455468" class="quick-btn">
+            <div class="qb-ic blue">📞</div>
+            <div><div class="qb-label">Llamar ahora</div><div class="qb-val">(777) 345-5468</div></div>
+          </a>
+          <a href="mailto:b.avila@breadteach.com" class="quick-btn">
+            <div class="qb-ic orange">✉️</div>
+            <div><div class="qb-label">Enviar correo</div><div class="qb-val">b.avila@breadteach.com</div></div>
+          </a>
+          <a href="https://wa.me/527773455468" target="_blank" rel="noopener" class="quick-btn">
+            <div class="qb-ic green">💬</div>
+            <div><div class="qb-label">WhatsApp</div><div class="qb-val">Escríbenos en WhatsApp</div></div>
+          </a>
+        </div>
+      </div>
+
+      <!-- RIGHT: Form -->
+      <div class="cf">
+        <div class="cf-head">
+          <h3>Solicitar información o cotización</h3>
+          <p>Completa el formulario y te contactamos en menos de 24 horas (días hábiles).</p>
+        </div>
+        <div class="frow">
+          <div class="fg"><label for="nombre">Nombre *</label><input type="text" id="nombre" placeholder="Tu nombre completo" required></div>
+          <div class="fg"><label for="empresa">Empresa</label><input type="text" id="empresa" placeholder="Nombre de tu empresa"></div>
+        </div>
+        <div class="fg"><label for="email">Correo electrónico *</label><input type="email" id="email" placeholder="tucorreo@ejemplo.com" required></div>
+        <div class="fg"><label for="telefono">Teléfono</label><input type="tel" id="telefono" placeholder="(777) 000-0000"></div>
+        <div class="fg">
+          <label for="servicio">Servicio de interés</label>
+          <select id="servicio">
+            <option value="">Selecciona un servicio...</option>
+            <option>Soporte y mantenimiento de equipos</option>
+            <option>Diseño e instalación de redes</option>
+            <option>Seguridad y cortafuegos</option>
+            <option>Servidores cloud &amp; on-premise</option>
+            <option>Capacitaciones técnicas</option>
+            <option>Diagnóstico de necesidades</option>
+            <option>Venta e integración de hardware</option>
+            <option>Creación y administración web</option>
+            <option>Análisis SEO</option>
+            <option>Automatizaciones</option>
+            <option>Varios / No sé por dónde empezar</option>
+          </select>
+        </div>
+        <div class="fg"><label for="mensaje">Cuéntanos tu proyecto *</label><textarea id="mensaje" placeholder="Describe brevemente tu necesidad, reto o proyecto..." required></textarea></div>
+        <button class="submit-btn" id="sb">🚀 Enviar mensaje</button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- MAP STRIP -->
+<div class="map-strip rv">
+  <div class="cnt">
+    <div class="map-inner">
+      <div class="map-ic">📍</div>
+      <div class="map-text">
+        <h3>Cuernavaca, Morelos — con alcance nacional</h3>
+        <p>Nuestra base de operaciones está en Cuernavaca, Morelos, pero brindamos servicio remoto a toda la República Mexicana. Para proyectos en otras ciudades coordinamos visitas presenciales según el alcance del proyecto.</p>
+      </div>
+      <a href="tel:7773455468" class="btn btn-y" style="flex-shrink:0;margin-left:auto">Llamar ahora →</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="f-logo"><img src="Gemini_Generated_Image_4tzenf4tzenf4tze.png" alt="BreadTeach Logo"></div>
+  <p>© 2026 BreadTeach · Servicios Integrales de Soporte y Tecnología · Cuernavaca, Morelos, México</p>
+</footer>
+
+<script>
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')})},{threshold:.07});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+const nb=document.getElementById('nb');
+window.addEventListener('scroll',()=>{nb.style.background=scrollY>60?'rgba(13,17,23,.97)':'rgba(13,17,23,.85)';nb.style.boxShadow=scrollY>60?'0 4px 20px rgba(0,0,0,.4)':'none';},{passive:true});
+const hamBtn=document.getElementById('hamBtn'),mobileNav=document.getElementById('mobileNav'),mClose=document.getElementById('mClose');
+hamBtn.addEventListener('click',()=>mobileNav.classList.add('open'));
+mClose.addEventListener('click',()=>mobileNav.classList.remove('open'));
+mobileNav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mobileNav.classList.remove('open')));
+// Submit button feedback
+const sb=document.getElementById('sb');
+sb.addEventListener('click',()=>{
+  const nombre=document.getElementById('nombre').value.trim();
+  const email=document.getElementById('email').value.trim();
+  const mensaje=document.getElementById('mensaje').value.trim();
+  if(!nombre||!email||!mensaje){
+    sb.textContent='⚠️ Por favor completa los campos obligatorios';
+    sb.style.background='#b45309';
+    setTimeout(()=>{sb.textContent='🚀 Enviar mensaje';sb.removeAttribute('style');},3000);
+    return;
+  }
+  const orig=sb.textContent;
+  sb.textContent='✅ ¡Mensaje enviado! Te contactaremos pronto';
+  sb.style.cssText='width:100%;background:#22c55e;color:#fff;font-weight:700;border:none;padding:.85rem;border-radius:9px;cursor:default;font-size:.95rem;font-family:inherit;display:flex;align-items:center;justify-content:center';
+  setTimeout(()=>{sb.textContent=orig;sb.removeAttribute('style');},4500);
+});
+</script>
+</body>
+</html>

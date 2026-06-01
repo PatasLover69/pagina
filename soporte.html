@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Soporte y Mantenimiento - BreadTeach</title>
+<meta name="description" content="Servicio profesional de soporte tecnico y mantenimiento de equipos de computo en Cuernavaca, Morelos. Diagnostico, reparacion y mantenimiento preventivo por BreadTeach.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+:root{--blue:#29a0d3;--blue-l:#4bb3e0;--blue-d:#1c81ac;--orange:#f39200;--orange-l:#faad33;--b0:#0d1117;--b1:#161b22;--b2:#1c2128;--b3:#21262d;--t0:#e6edf3;--t1:#8b949e;--t2:#6e7681;--border:rgba(255,255,255,.07)}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--b0);color:var(--t0);overflow-x:hidden}
+nav{position:fixed;top:0;width:100%;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:.85rem 2rem;background:rgba(13,17,23,.85);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);transition:all .3s}
+.logo{display:flex;align-items:center;text-decoration:none}.logo img{height:40px;width:auto;object-fit:contain}
+.nav-links{display:flex;gap:2rem;list-style:none;align-items:center}
+.nav-links a{color:var(--t1);text-decoration:none;font-size:.875rem;font-weight:600;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--blue)}
+.dropdown{position:relative}.dropdown>a{display:flex;align-items:center;gap:.3rem}
+.dropdown-menu{display:none;position:absolute;top:100%;left:0;padding-top:.75rem;list-style:none;flex-direction:column;z-index:100;min-width:240px}
+.dropdown:hover .dropdown-menu{display:flex}
+.dropdown-menu-inner{background:var(--b1);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:.5rem 0;box-shadow:0 16px 40px rgba(0,0,0,.6);width:100%;position:relative}
+.dropdown-menu-inner::before{content:'';position:absolute;top:-6px;left:18px;width:12px;height:12px;background:var(--b1);border-left:1px solid rgba(255,255,255,.08);border-top:1px solid rgba(255,255,255,.08);transform:rotate(45deg)}
+.dropdown-menu li a{display:block;padding:.72rem 1.4rem;font-size:.83rem;font-weight:500;color:var(--t1);transition:all .18s;border-left:2px solid transparent;text-decoration:none}
+.dropdown-menu li a:hover,.dropdown-menu li a.active{background:rgba(41,160,211,.08);color:var(--blue);border-left-color:var(--blue);padding-left:1.6rem}
+.btn{display:inline-flex;align-items:center;gap:.35rem;padding:.58rem 1.2rem;border-radius:8px;font-size:.875rem;font-weight:700;cursor:pointer;text-decoration:none;transition:all .2s;border:none;font-family:inherit;line-height:1}
+.btn-y{background:var(--orange);color:#fff}.btn-y:hover{background:var(--orange-l);transform:translateY(-2px);box-shadow:0 8px 24px rgba(243,146,0,.35)}
+.btn-yb{background:transparent;color:var(--blue);border:1.5px solid var(--blue)}.btn-yb:hover{background:rgba(41,160,211,.1);transform:translateY(-2px)}
+.cnt{max-width:1200px;margin:0 auto;width:100%;padding:0 1rem}
+.svc-banner{min-height:55vh;display:flex;align-items:center;padding:8rem 2rem 4rem;position:relative;overflow:hidden;background:linear-gradient(135deg,var(--b0) 0%,var(--b1) 100%)}
+.svc-banner::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(41,160,211,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(41,160,211,.04) 1px,transparent 1px);background-size:58px 58px}
+.banner-glow{position:absolute;width:700px;height:700px;background:radial-gradient(circle,rgba(41,160,211,.1) 0%,transparent 65%);top:50%;right:-10%;transform:translateY(-50%)}
+.banner-inner{position:relative;z-index:1;max-width:800px}
+.breadcrumb{display:flex;align-items:center;gap:.5rem;margin-bottom:1.5rem;font-size:.8rem;color:var(--t2)}
+.breadcrumb a{color:var(--blue);text-decoration:none}.breadcrumb a:hover{text-decoration:underline}
+.banner-tag{color:var(--orange);font-size:.75rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:.6rem}
+.banner-inner h1{font-size:clamp(2rem,4vw,3.2rem);font-weight:800;letter-spacing:-.03em;line-height:1.1;margin-bottom:1rem}
+.amb{color:var(--blue)}.banner-inner p{color:var(--t1);font-size:1.05rem;line-height:1.8;max-width:650px}
+.banner-btns{display:flex;gap:.85rem;flex-wrap:wrap;margin-top:2rem}
+.sec{padding:5rem 0}.wsec{padding:5rem 0;background:linear-gradient(180deg,rgba(41,160,211,.03),rgba(41,160,211,.05) 50%,rgba(41,160,211,.03))}
+.s-tag{color:var(--orange);font-size:.75rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:.55rem}
+h2{font-size:clamp(1.6rem,2.5vw,2.2rem);font-weight:800;letter-spacing:-.03em;margin-bottom:.8rem;color:var(--t0)}
+.s-sub{color:var(--t1);font-size:.96rem;line-height:1.82;max-width:540px;margin-bottom:2.4rem}
+.ctr{text-align:center}.ctr .s-sub{margin:0 auto 2.4rem}
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.feat{background:var(--b2);border:1px solid var(--border);border-radius:13px;padding:1.8rem 1.5rem;transition:all .3s}
+.feat:hover{border-color:rgba(41,160,211,.25);transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.3)}
+.feat-ic{font-size:2rem;margin-bottom:1rem;display:block}
+.feat-t{font-weight:700;font-size:.95rem;margin-bottom:.5rem;color:var(--t0)}
+.feat-d{font-size:.82rem;color:var(--t1);line-height:1.7}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.list-items{display:flex;flex-direction:column;gap:1rem;margin-top:1rem}
+.li-item{display:flex;gap:.85rem;align-items:flex-start}
+.li-ic{flex-shrink:0;width:36px;height:36px;background:rgba(41,160,211,.1);border:1px solid rgba(41,160,211,.2);color:var(--blue-l);border-radius:8px;display:grid;place-items:center;font-size:1rem}
+.li-t{font-weight:700;font-size:.875rem;margin-bottom:.2rem;color:var(--t0)}
+.li-d{font-size:.8rem;color:var(--t1);line-height:1.65}
+.planes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.plan{background:var(--b2);border:1px solid var(--border);border-radius:16px;padding:2rem 1.5rem;position:relative;transition:all .3s}
+.plan.destacado{border-color:rgba(41,160,211,.35);box-shadow:0 0 0 1px rgba(41,160,211,.15),0 20px 50px rgba(0,0,0,.4)}
+.plan-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--blue);color:#fff;font-size:.7rem;font-weight:700;padding:.25rem .8rem;border-radius:100px;white-space:nowrap}
+.plan-ic{font-size:1.8rem;margin-bottom:.8rem}
+.plan-t{font-weight:800;font-size:1.1rem;margin-bottom:.4rem;color:var(--t0)}
+.plan-d{font-size:.8rem;color:var(--t1);margin-bottom:1.4rem;line-height:1.6}
+.plan-list{list-style:none;display:flex;flex-direction:column;gap:.6rem;margin-bottom:1.5rem}
+.plan-list li{font-size:.8rem;color:var(--t1);display:flex;gap:.5rem;align-items:flex-start}
+.plan-list li::before{content:'\2713';color:var(--blue);font-weight:700;flex-shrink:0}
+.cta-b{background:linear-gradient(135deg,rgba(41,160,211,.08),rgba(41,160,211,.04) 60%,rgba(243,146,0,.06));border:1px solid rgba(41,160,211,.15);border-radius:20px;padding:3.5rem 2.5rem;text-align:center;position:relative;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.3)}
+.cta-b::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 65% 90% at 50% 50%,rgba(41,160,211,.04),transparent);pointer-events:none}
+.cta-b h2,.cta-b p,.cta-btns{position:relative}
+.cta-b p{color:var(--t1);margin:.7rem 0 2rem;font-size:.96rem}
+.cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+footer{padding:2.5rem 2rem;text-align:center;border-top:1px solid var(--border);background:var(--b1)}
+.f-logo{display:flex;align-items:center;justify-content:center;margin-bottom:1rem}
+.f-logo img{height:40px;width:auto;object-fit:contain}
+footer p{color:var(--t2);font-size:.77rem}
+.rv{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}.rv.on{opacity:1;transform:none}
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:.3rem;background:none;border:none}
+.ham span{display:block;width:22px;height:2px;background:var(--t0);border-radius:2px}
+.mobile-nav{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(13,17,23,.97);z-index:999;padding:5rem 2rem 2rem;flex-direction:column;gap:1.5rem}
+.mobile-nav.open{display:flex}
+.mobile-nav a{color:var(--t0);font-size:1.1rem;font-weight:700;text-decoration:none;padding:.5rem 0;border-bottom:1px solid var(--border)}
+.mobile-nav a:hover{color:var(--blue)}.m-close{position:absolute;top:1.2rem;right:1.5rem;background:none;border:none;color:var(--t0);font-size:1.8rem;cursor:pointer}
+@media(max-width:940px){.nav-links{display:none}.ham{display:flex}.feat-grid{grid-template-columns:1fr 1fr}.two-col{grid-template-columns:1fr;gap:2.5rem}.planes-grid{grid-template-columns:1fr}}
+@media(max-width:540px){.feat-grid{grid-template-columns:1fr}.svc-banner{padding:7rem 1.25rem 3rem}.cta-b{padding:2.5rem 1.5rem}}
+</style>
+</head>
+<body>
+<nav id="nb">
+  <a class="logo" href="index.html"><img src="Gemini_Generated_Image_4tzenf4tzenf4tze.png" alt="BreadTeach Logo"></a>
+  <ul class="nav-links">
+    <li class="dropdown">
+      <a href="servicios.html" class="active">Servicios &#9660;</a>
+      <ul class="dropdown-menu">
+        <div class="dropdown-menu-inner">
+          <li><a href="soporte.html" class="active">&#128421; Soporte y Mantenimiento</a></li>
+          <li><a href="redes.html">&#127760; Redes y Seguridad</a></li>
+          <li><a href="servidores.html">&#9729; Servidores Cloud / On-Premise</a></li>
+          <li><a href="web.html">&#128187; Desarrollo Web</a></li>
+        </div>
+      </ul>
+    </li>
+    <li><a href="nosotros.html">Nosotros</a></li>
+    <li><a href="nosotros.html#proceso">Proceso</a></li>
+    <li><a href="contacto.html">Contacto</a></li>
+  </ul>
+  <a href="contacto.html" class="btn btn-y">Cotiza gratis &#8594;</a>
+  <button class="ham" id="hamBtn"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <button class="m-close" id="mClose">&#10005;</button>
+  <a href="servicios.html">Servicios</a>
+  <a href="soporte.html">&mdash; Soporte y Mantenimiento</a>
+  <a href="redes.html">&mdash; Redes y Seguridad</a>
+  <a href="servidores.html">&mdash; Servidores Cloud / On-Premise</a>
+  <a href="web.html">&mdash; Desarrollo Web</a>
+  <a href="nosotros.html">Nosotros</a>
+  <a href="nosotros.html#proceso">Proceso</a>
+  <a href="contacto.html">Contacto</a>
+</div>
+
+<section class="svc-banner">
+  <div class="banner-glow"></div>
+  <div class="cnt">
+    <div class="banner-inner">
+      <div class="breadcrumb"><a href="index.html">Inicio</a><span>&#8250;</span><a href="servicios.html">Servicios</a><span>&#8250;</span><span>Soporte y Mantenimiento</span></div>
+      <div class="banner-tag">Soporte tecnico</div>
+      <h1>Soporte y <span class="amb">Mantenimiento</span> de Equipos</h1>
+      <p>Mantenemos tus equipos en optimas condiciones para que nunca pares de producir. Diagnostico rapido, reparacion profesional y planes de mantenimiento preventivo que protegen tu inversion.</p>
+      <div class="banner-btns">
+        <a href="contacto.html" class="btn btn-y">&#128296; Solicitar servicio</a>
+        <a href="tel:7773455468" class="btn btn-yb">Llamar ahora</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="cnt">
+    <div class="rv ctr" style="margin-bottom:3rem">
+      <div class="s-tag">&#191;Que incluye?</div>
+      <h2>Servicio <span class="amb">completo</span> de extremo a extremo</h2>
+      <p class="s-sub ctr">Cubrimos todo el ciclo de vida de tus equipos de computo, desde la prevencion hasta la recuperacion ante fallas.</p>
+    </div>
+    <div class="feat-grid rv">
+      <div class="feat"><span class="feat-ic">&#128269;</span><div class="feat-t">Diagnostico Profesional</div><div class="feat-d">Analisis exhaustivo de hardware y software para identificar la causa raiz de cualquier problema con precision.</div></div>
+      <div class="feat"><span class="feat-ic">&#128295;</span><div class="feat-t">Reparacion de Hardware</div><div class="feat-d">Sustitucion de componentes defectuosos: fuentes, RAM, discos, tarjetas madre, pantallas y mas.</div></div>
+      <div class="feat"><span class="feat-ic">&#128190;</span><div class="feat-t">Recuperacion de Datos</div><div class="feat-d">Recuperamos informacion critica de discos danados, formateados accidentalmente o con sectores defectuosos.</div></div>
+      <div class="feat"><span class="feat-ic">&#129529;</span><div class="feat-t">Mantenimiento Preventivo</div><div class="feat-d">Limpieza profunda, cambio de pasta termica, actualizacion de drivers y optimizacion del sistema operativo.</div></div>
+      <div class="feat"><span class="feat-ic">&#128737;</span><div class="feat-t">Eliminacion de Malware</div><div class="feat-d">Deteccion y erradicacion total de virus, ransomware, spyware y cualquier amenaza que afecte tus equipos.</div></div>
+      <div class="feat"><span class="feat-ic">&#127891;</span><div class="feat-t">Capacitacion de Usuario</div><div class="feat-d">Entrenamos a tu equipo en el uso correcto de la tecnologia y buenas practicas de seguridad digital.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="wsec">
+  <div class="cnt">
+    <div class="two-col">
+      <div class="rv">
+        <div class="s-tag">Por que elegirnos</div>
+        <h2>Soporte que <span class="amb">no te deja solo</span></h2>
+        <p class="s-sub">Sabemos que un equipo caido significa perdidas. Por eso respondemos rapido, resolvemos bien y te acompanamos con seguimiento real.</p>
+        <a href="contacto.html" class="btn btn-y">Agendar diagnostico gratuito</a>
+      </div>
+      <div class="list-items rv">
+        <div class="li-item"><div class="li-ic">&#9889;</div><div><div class="li-t">Tiempo de respuesta menor a 4 horas</div><div class="li-d">Para casos urgentes atendemos el mismo dia. Tu operacion no puede esperar.</div></div></div>
+        <div class="li-item"><div class="li-ic">&#128203;</div><div><div class="li-t">Reporte detallado incluido</div><div class="li-d">Cada servicio incluye un reporte tecnico con diagnostico, acciones realizadas y recomendaciones.</div></div></div>
+        <div class="li-item"><div class="li-ic">&#127968;</div><div><div class="li-t">Servicio en sitio o remoto</div><div class="li-d">Vamos a tu empresa o resolvemos muchos problemas de forma remota sin que pierdas tiempo.</div></div></div>
+        <div class="li-item"><div class="li-ic">&#128274;</div><div><div class="li-t">Garantia en el servicio</div><div class="li-d">Todos nuestros trabajos tienen garantia. Si el problema regresa, volvemos sin costo adicional.</div></div></div>
+        <div class="li-item"><div class="li-ic">&#128230;</div><div><div class="li-t">Refacciones originales o compatibles</div><div class="li-d">Usamos componentes de calidad y te informamos de las opciones antes de proceder.</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="cnt">
+    <div class="rv ctr" style="margin-bottom:3rem">
+      <div class="s-tag">Planes disponibles</div>
+      <h2>Elige el plan que se <span class="amb">adapta</span> a tu empresa</h2>
+      <p class="s-sub ctr">Desde servicios puntuales hasta contratos de mantenimiento mensual con soporte prioritario.</p>
+    </div>
+    <div class="planes-grid rv">
+      <div class="plan">
+        <div class="plan-ic">&#128296;</div>
+        <div class="plan-t">Por Servicio</div>
+        <div class="plan-d">Ideal para atencion puntual sin compromiso de contrato.</div>
+        <ul class="plan-list">
+          <li>Diagnostico inicial incluido</li>
+          <li>Reparacion o mantenimiento</li>
+          <li>Reporte tecnico</li>
+          <li>Garantia 30 dias en el servicio</li>
+          <li>Atencion en sitio o taller</li>
+        </ul>
+        <a href="contacto.html" class="btn btn-yb" style="width:100%;justify-content:center">Solicitar cotizacion</a>
+      </div>
+      <div class="plan destacado">
+        <div class="plan-badge">Mas popular</div>
+        <div class="plan-ic">&#11088;</div>
+        <div class="plan-t">Plan Mensual</div>
+        <div class="plan-d">Mantenimiento preventivo periodico con soporte incluido.</div>
+        <ul class="plan-list">
+          <li>Mantenimiento preventivo mensual</li>
+          <li>Soporte remoto ilimitado</li>
+          <li>2 visitas tecnicas al mes</li>
+          <li>Monitoreo basico de equipos</li>
+          <li>Prioridad en atencion</li>
+          <li>Reportes mensuales de estado</li>
+        </ul>
+        <a href="contacto.html" class="btn btn-y" style="width:100%;justify-content:center">Contratar plan</a>
+      </div>
+      <div class="plan">
+        <div class="plan-ic">&#127970;</div>
+        <div class="plan-t">Empresarial</div>
+        <div class="plan-d">Para empresas con multiples equipos y necesidades avanzadas.</div>
+        <ul class="plan-list">
+          <li>Todo lo del Plan Mensual</li>
+          <li>Visitas ilimitadas</li>
+          <li>Inventario de activos TI</li>
+          <li>Soporte 24/7 en emergencias</li>
+          <li>Gestor de cuenta dedicado</li>
+          <li>SLA garantizado</li>
+        </ul>
+        <a href="contacto.html" class="btn btn-yb" style="width:100%;justify-content:center">Cotizar ahora</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:0">
+  <div class="cnt">
+    <div class="cta-b rv">
+      <h2>&#191;Tu equipo esta fallando ahora?</h2>
+      <p>Contactanos de inmediato. Atendemos urgencias el mismo dia en Cuernavaca y zona metropolitana.</p>
+      <div class="cta-btns">
+        <a href="contacto.html" class="btn btn-y">&#128222; Contacto urgente</a>
+        <a href="tel:7773455468" class="btn btn-yb">Llamar: (777) 345-5468</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="f-logo"><img src="Gemini_Generated_Image_4tzenf4tzenf4tze.png" alt="BreadTeach Logo"></div>
+  <p>&#169; 2026 BreadTeach &middot; Servicios Integrales de Soporte y Tecnologia &middot; Cuernavaca, Morelos, Mexico</p>
+</footer>
+<script>
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')})},{threshold:.07});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+const nb=document.getElementById('nb');
+window.addEventListener('scroll',()=>{nb.style.background=scrollY>60?'rgba(13,17,23,.97)':'rgba(13,17,23,.85)';nb.style.boxShadow=scrollY>60?'0 4px 20px rgba(0,0,0,.4)':'none';},{passive:true});
+const hamBtn=document.getElementById('hamBtn'),mobileNav=document.getElementById('mobileNav'),mClose=document.getElementById('mClose');
+hamBtn.addEventListener('click',()=>mobileNav.classList.add('open'));
+mClose.addEventListener('click',()=>mobileNav.classList.remove('open'));
+mobileNav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mobileNav.classList.remove('open')));
+</script>
+</body>
+</html>
