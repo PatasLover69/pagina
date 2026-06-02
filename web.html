@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Desarrollo Web y SEO - BreadTeach</title>
-<meta name="description" content="Diseno y desarrollo de sitios web modernos, tiendas en linea, landing pages y estrategia SEO en Cuernavaca, Morelos. BreadTeach, presencia digital profesional.">
+<title>Desarrollo Web y SEO - Kodiak Tech &amp; Train</title>
+<meta name="description" content="Diseno y desarrollo de sitios web modernos, tiendas en linea, landing pages y estrategia SEO en Cuernavaca, Morelos. Kodiak Tech &amp; Train, presencia digital profesional.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
-:root{--blue:#29a0d3;--blue-l:#4bb3e0;--blue-d:#1c81ac;--orange:#f39200;--orange-l:#faad33;--b0:#0d1117;--b1:#161b22;--b2:#1c2128;--b3:#21262d;--t0:#e6edf3;--t1:#8b949e;--t2:#6e7681;--border:rgba(255,255,255,.07)}
+:root{--blue:#29a0d3;--blue-l:#4bb3e0;--blue-d:#1c81ac;--orange:#f39200;--orange-l:#faad33;--b0:#ffffff;--b1:#f5f7fa;--b2:#edf0f5;--b3:#e2e6ed;--t0:#111827;--t1:#4b5563;--t2:#6b7280;--border:rgba(0,0,0,.08)}
 body{font-family:'Inter',system-ui,sans-serif;background:var(--b0);color:var(--t0);overflow-x:hidden}
-nav{position:fixed;top:0;width:100%;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:.85rem 2rem;background:rgba(13,17,23,.85);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);transition:all .3s}
+nav{position:fixed;top:0;width:100%;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:.85rem 2rem;background:rgba(255,255,255,.92);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);transition:all .3s}
 .logo{display:flex;align-items:center;text-decoration:none}.logo img{height:40px;width:auto;object-fit:contain}
 .nav-links{display:flex;gap:2rem;list-style:none;align-items:center}
 .nav-links a{color:var(--t1);text-decoration:none;font-size:.875rem;font-weight:600;transition:color .2s}
@@ -19,7 +19,7 @@ nav{position:fixed;top:0;width:100%;z-index:1000;display:flex;align-items:center
 .dropdown{position:relative}.dropdown>a{display:flex;align-items:center;gap:.3rem}
 .dropdown-menu{display:none;position:absolute;top:100%;left:0;padding-top:.75rem;list-style:none;flex-direction:column;z-index:100;min-width:240px}
 .dropdown:hover .dropdown-menu{display:flex}
-.dropdown-menu-inner{background:var(--b1);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:.5rem 0;box-shadow:0 16px 40px rgba(0,0,0,.6);width:100%;position:relative}
+.dropdown-menu-inner{background:var(--b1);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:.5rem 0;box-shadow:0 16px 40px rgba(0,0,0,.12);width:100%;position:relative}
 .dropdown-menu-inner::before{content:'';position:absolute;top:-6px;left:18px;width:12px;height:12px;background:var(--b1);border-left:1px solid rgba(255,255,255,.08);border-top:1px solid rgba(255,255,255,.08);transform:rotate(45deg)}
 .dropdown-menu li a{display:block;padding:.72rem 1.4rem;font-size:.83rem;font-weight:500;color:var(--t1);transition:all .18s;border-left:2px solid transparent;text-decoration:none}
 .dropdown-menu li a:hover,.dropdown-menu li a.active{background:rgba(41,160,211,.08);color:var(--blue);border-left-color:var(--blue);padding-left:1.6rem}
@@ -40,13 +40,13 @@ nav{position:fixed;top:0;width:100%;z-index:1000;display:flex;align-items:center
 .banner-inner p{color:var(--t1);font-size:1.05rem;line-height:1.8;max-width:650px}
 .banner-btns{display:flex;gap:.85rem;flex-wrap:wrap;margin-top:2rem}
 /* SECTIONS */
-.sec{padding:5rem 0}.wsec{padding:5rem 0;background:linear-gradient(180deg,rgba(41,160,211,.03),rgba(41,160,211,.05) 50%,rgba(41,160,211,.03))}
+.sec{padding:5rem 0}.wsec{padding:5rem 0;background:#eef6fb}
 .s-tag{color:var(--orange);font-size:.75rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:.55rem}
 h2{font-size:clamp(1.6rem,2.5vw,2.2rem);font-weight:800;letter-spacing:-.03em;margin-bottom:.8rem;color:var(--t0)}
 .s-sub{color:var(--t1);font-size:.96rem;line-height:1.82;max-width:540px;margin-bottom:2.4rem}
 .ctr{text-align:center}.ctr .s-sub{margin:0 auto 2.4rem}
 /* FEATURES */
-.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem}
 .feat{background:var(--b2);border:1px solid var(--border);border-radius:13px;padding:1.8rem 1.5rem;transition:all .3s}
 .feat:hover{border-color:rgba(41,160,211,.25);transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.3)}
 .feat-ic{font-size:2rem;margin-bottom:1rem;display:block}
@@ -80,7 +80,7 @@ h2{font-size:clamp(1.6rem,2.5vw,2.2rem);font-weight:800;letter-spacing:-.03em;ma
 .paq-list li{font-size:.8rem;color:var(--t1);display:flex;gap:.5rem;align-items:flex-start}
 .paq-list li::before{content:'\2713';color:var(--blue);font-weight:700;flex-shrink:0}
 /* CTA */
-.cta-b{background:linear-gradient(135deg,rgba(41,160,211,.08),rgba(41,160,211,.04) 60%,rgba(243,146,0,.06));border:1px solid rgba(41,160,211,.15);border-radius:20px;padding:3.5rem 2.5rem;text-align:center;position:relative;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.3)}
+.cta-b{background:linear-gradient(135deg,rgba(41,160,211,.08),rgba(41,160,211,.04) 60%,rgba(243,146,0,.06));border:1px solid rgba(41,160,211,.15);border-radius:20px;padding:3.5rem 2.5rem;text-align:center;position:relative;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.07)}
 .cta-b::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 65% 90% at 50% 50%,rgba(41,160,211,.04),transparent);pointer-events:none}
 .cta-b h2,.cta-b p,.cta-btns{position:relative}
 .cta-b p{color:var(--t1);margin:.7rem 0 2rem;font-size:.96rem}
@@ -95,7 +95,7 @@ footer p{color:var(--t2);font-size:.77rem}
 /* MOBILE */
 .ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:.3rem;background:none;border:none}
 .ham span{display:block;width:22px;height:2px;background:var(--t0);border-radius:2px}
-.mobile-nav{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(13,17,23,.97);z-index:999;padding:5rem 2rem 2rem;flex-direction:column;gap:1.5rem}
+.mobile-nav{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(255,255,255,.97);z-index:999;padding:5rem 2rem 2rem;flex-direction:column;gap:1.5rem}
 .mobile-nav.open{display:flex}
 .mobile-nav a{color:var(--t0);font-size:1.1rem;font-weight:700;text-decoration:none;padding:.5rem 0;border-bottom:1px solid var(--border)}
 .mobile-nav a:hover{color:var(--blue)}.m-close{position:absolute;top:1.2rem;right:1.5rem;background:none;border:none;color:var(--t0);font-size:1.8rem;cursor:pointer}
@@ -106,7 +106,7 @@ footer p{color:var(--t2);font-size:.77rem}
 <body>
 
 <nav id="nb">
-  <a class="logo" href="index.html"><img src="Gemini_Generated_Image_4tzenf4tzenf4tze.png" alt="BreadTeach Logo"></a>
+  <a class="logo" href="index.html"><img src="../Logotipo%26Isotipov2.png" alt="Kodiak Tech &amp; Train Logo"></a>
   <ul class="nav-links">
     <li class="dropdown">
       <a href="servicios.html" class="active">Servicios &#9660;</a>
@@ -166,7 +166,7 @@ footer p{color:var(--t2);font-size:.77rem}
     <div class="rv ctr" style="margin-bottom:3rem">
       <div class="s-tag">Servicios web</div>
       <h2>Todo para tu <span class="amb">presencia digital</span></h2>
-      <p class="s-sub ctr">Desde una landing page hasta una tienda en linea completa. Construimos con las tecnologias mas modernas y optimizadas.</p>
+      <p class="s-sub ctr">Desde una landing page hasta un sitio empresarial completo. Construimos con las tecnologias mas modernas y optimizadas.</p>
     </div>
     <div class="feat-grid rv">
       <div class="feat">
@@ -178,11 +178,6 @@ footer p{color:var(--t2);font-size:.77rem}
         <span class="feat-ic">&#128241;</span>
         <div class="feat-t">Diseno Responsivo</div>
         <div class="feat-d">Tu sitio se ve perfecto en cualquier dispositivo: movil, tablet o desktop. Google premia los sitios responsivos con mejor posicionamiento.</div>
-      </div>
-      <div class="feat">
-        <span class="feat-ic">&#128722;</span>
-        <div class="feat-t">Tiendas en Linea</div>
-        <div class="feat-d">E-commerce con carrito, pagos integrados (MercadoPago, PayPal, Stripe), gestion de inventario y panel de administracion completo.</div>
       </div>
       <div class="feat">
         <span class="feat-ic">&#128640;</span>
@@ -358,8 +353,8 @@ footer p{color:var(--t2);font-size:.77rem}
 </section>
 
 <footer>
-  <div class="f-logo"><img src="Gemini_Generated_Image_4tzenf4tzenf4tze.png" alt="BreadTeach Logo"></div>
-  <p>&#169; 2026 BreadTeach &middot; Servicios Integrales de Soporte y Tecnologia &middot; Cuernavaca, Morelos, Mexico</p>
+  <div class="f-logo"><img src="../Logotipo%26Isotipov2.png" alt="Kodiak Tech &amp; Train Logo"></div>
+  <p>&#169; 2026 Kodiak Tech &amp; Train &middot; Servicios Integrales de Soporte y Tecnologia &middot; Cuernavaca, Morelos, Mexico</p>
 </footer>
 
 <script>
@@ -367,8 +362,8 @@ const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.targ
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 const nb=document.getElementById('nb');
 window.addEventListener('scroll',()=>{
-  nb.style.background=scrollY>60?'rgba(13,17,23,.97)':'rgba(13,17,23,.85)';
-  nb.style.boxShadow=scrollY>60?'0 4px 20px rgba(0,0,0,.4)':'none';
+  nb.style.background=scrollY>60?'rgba(255,255,255,.97)':'rgba(255,255,255,.92)';
+  nb.style.boxShadow=scrollY>60?'0 4px 20px rgba(0,0,0,.09)':'none';
 },{passive:true});
 const hamBtn=document.getElementById('hamBtn'),mobileNav=document.getElementById('mobileNav'),mClose=document.getElementById('mClose');
 hamBtn.addEventListener('click',()=>mobileNav.classList.add('open'));
