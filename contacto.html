@@ -102,6 +102,9 @@ footer p{color:var(--t2);font-size:.77rem}
 @media(max-width:940px){.nav-links{display:none}.ham{display:flex}.contact-main{grid-template-columns:1fr;gap:2.5rem}}
 @media(max-width:540px){.svc-banner{padding:7rem 1.25rem 3rem}.frow{grid-template-columns:1fr}.cf{padding:1.75rem 1.25rem}}
 </style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"LocalBusiness","name":"Kodiak Tech & Train","description":"Servicios integrales de tecnología: soporte técnico, redes, servidores, desarrollo web y SEO en Cuernavaca, Morelos.","url":"https://kodiaktt.com","telephone":"+527773455468","email":"support@kodiaktt.com","address":{"@type":"PostalAddress","addressLocality":"Cuernavaca","addressRegion":"Morelos","addressCountry":"MX"},"geo":{"@type":"GeoCoordinates","latitude":"18.9186","longitude":"-99.2342"},"openingHours":"Mo-Fr 09:00-19:00","priceRange":"$$","areaServed":{"@type":"Country","name":"México"},"sameAs":[]}
+</script>
 </head>
 <body>
 
@@ -175,14 +178,14 @@ footer p{color:var(--t2);font-size:.77rem}
             <div class="ci-ic">✉️</div>
             <div>
               <div class="ci-l">Correo electrónico</div>
-              <div class="ci-v">b.avila@breadteach.com</div>
+              <div class="ci-v">support@kodiaktt.com</div>
             </div>
           </div>
           <div class="ci">
             <div class="ci-ic">🌐</div>
             <div>
               <div class="ci-l">Sitio web</div>
-              <div class="ci-v">breadteach.com</div>
+              <div class="ci-v">kodiaktt.com</div>
             </div>
           </div>
           <div class="ci">
@@ -207,9 +210,9 @@ footer p{color:var(--t2);font-size:.77rem}
             <div class="qb-ic blue">📞</div>
             <div><div class="qb-label">Llamar ahora</div><div class="qb-val">(777) 345-5468</div></div>
           </a>
-          <a href="mailto:b.avila@breadteach.com" class="quick-btn">
+          <a href="mailto:support@kodiaktt.com" class="quick-btn">
             <div class="qb-ic orange">✉️</div>
-            <div><div class="qb-label">Enviar correo</div><div class="qb-val">b.avila@breadteach.com</div></div>
+            <div><div class="qb-label">Enviar correo</div><div class="qb-val">support@kodiaktt.com</div></div>
           </a>
           <a href="https://wa.me/527773455468" target="_blank" rel="noopener" class="quick-btn">
             <div class="qb-ic green">💬</div>
@@ -224,29 +227,31 @@ footer p{color:var(--t2);font-size:.77rem}
           <h3>Solicitar información o cotización</h3>
           <p>Completa el formulario y te contactamos en menos de 24 horas (días hábiles).</p>
         </div>
+        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" id="contactForm">
         <div class="frow">
-          <div class="fg"><label for="nombre">Nombre *</label><input type="text" id="nombre" placeholder="Tu nombre completo" required></div>
-          <div class="fg"><label for="empresa">Negocio / Empresa</label><input type="text" id="empresa" placeholder="Nombre de tu negocio o proyecto"></div>
+          <div class="fg"><label for="nombre">Nombre *</label><input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required></div>
+          <div class="fg"><label for="empresa">Negocio / Empresa</label><input type="text" id="empresa" name="empresa" placeholder="Nombre de tu negocio o proyecto"></div>
         </div>
-        <div class="fg"><label for="email">Correo electrónico *</label><input type="email" id="email" placeholder="tucorreo@ejemplo.com" required></div>
-        <div class="fg"><label for="telefono">Teléfono</label><input type="tel" id="telefono" placeholder="(777) 000-0000"></div>
+        <div class="fg"><label for="email">Correo electrónico *</label><input type="email" id="email" name="email" placeholder="tucorreo@ejemplo.com" required></div>
+        <div class="fg"><label for="telefono">Teléfono</label><input type="tel" id="telefono" name="telefono" placeholder="(777) 000-0000"></div>
         <div class="fg">
           <label for="servicio">Servicio de interés</label>
-          <select id="servicio">
+          <select id="servicio" name="servicio">
             <option value="">Selecciona un servicio...</option>
             <option>Soporte y mantenimiento de equipos</option>
-            <option>Diseño e instalación de redes</option>
+            <option>Dise&#241;o e instalaci&#243;n de redes</option>
             <option>Seguridad y cortafuegos</option>
             <option>Servidores cloud &amp; on-premise</option>
-            <option>Capacitaciones técnicas</option>
-            <option>Diagnóstico de necesidades</option>
-            <option>Creación y administración web</option>
-            <option>Análisis SEO</option>
-            <option>Varios / No sé por dónde empezar</option>
+            <option>Capacitaciones t&#233;cnicas</option>
+            <option>Diagn&#243;stico de necesidades</option>
+            <option>Creaci&#243;n y administraci&#243;n web</option>
+            <option>An&#225;lisis SEO</option>
+            <option>Varios / No s&#233; por d&#243;nde empezar</option>
           </select>
         </div>
-        <div class="fg"><label for="mensaje">Cuéntanos tu proyecto *</label><textarea id="mensaje" placeholder="Describe brevemente tu necesidad, reto o proyecto..." required></textarea></div>
-        <button class="submit-btn" id="sb">🚀 Enviar mensaje</button>
+        <div class="fg"><label for="mensaje">Cuéntanos tu proyecto *</label><textarea id="mensaje" name="mensaje" placeholder="Describe brevemente tu necesidad, reto o proyecto..." required></textarea></div>
+        <button type="submit" class="submit-btn" id="sb">&#128640; Enviar mensaje</button>
+        </form>
       </div>
 
     </div>
