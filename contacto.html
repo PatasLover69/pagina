@@ -237,14 +237,14 @@ footer p{color:var(--t2);font-size:.77rem}
         </div>
         <form action="https://waviness-verse-hardwired.ngrok-free.dev/webhook/lead-quote" method="POST" id="contactForm">
         <div class="frow">
-          <div class="fg"><label for="nombre">Nombre *</label><input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required></div>
-          <div class="fg"><label for="empresa">Negocio / Empresa</label><input type="text" id="empresa" name="empresa" placeholder="Nombre de tu negocio o proyecto"></div>
+          <div class="fg"><label for="nombre">Nombre *</label><input type="text" id="nombre" name="client_name" placeholder="Tu nombre completo" required></div>
+          <div class="fg"><label for="empresa">Negocio / Empresa</label><input type="text" id="empresa" name="company" placeholder="Nombre de tu negocio o proyecto"></div>
         </div>
         <div class="fg"><label for="email">Correo electrónico *</label><input type="email" id="email" name="email" placeholder="tucorreo@ejemplo.com" required></div>
-        <div class="fg"><label for="telefono">Teléfono</label><input type="tel" id="telefono" name="telefono" placeholder="(777) 000-0000"></div>
+        <div class="fg"><label for="telefono">Teléfono</label><input type="tel" id="telefono" name="phone" placeholder="(777) 000-0000"></div>
         <div class="fg">
           <label for="servicio">Servicio de interés</label>
-          <select id="servicio" name="servicio">
+          <select id="servicio" name="service_interest">
             <option value="">Selecciona un servicio...</option>
             <option>Soporte y mantenimiento de equipos</option>
             <option>Dise&#241;o e instalaci&#243;n de redes</option>
@@ -257,7 +257,7 @@ footer p{color:var(--t2);font-size:.77rem}
             <option>Varios / No s&#233; por d&#243;nde empezar</option>
           </select>
         </div>
-        <div class="fg"><label for="mensaje">Cuéntanos tu proyecto *</label><textarea id="mensaje" name="mensaje" placeholder="Describe brevemente tu necesidad, reto o proyecto..." required></textarea></div>
+        <div class="fg"><label for="mensaje">Cuéntanos tu proyecto *</label><textarea id="mensaje" name="project_requirements" placeholder="Describe brevemente tu necesidad, reto o proyecto..." required></textarea></div>
         <button type="submit" class="submit-btn" id="sb">&#128640; Enviar mensaje</button>
         </form>
       </div>
