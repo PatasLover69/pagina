@@ -294,14 +294,14 @@ const hamBtn=document.getElementById('hamBtn'),mobileNav=document.getElementById
 hamBtn.addEventListener('click',()=>mobileNav.classList.add('open'));
 mClose.addEventListener('click',()=>mobileNav.classList.remove('open'));
 mobileNav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mobileNav.classList.remove('open')));
-// Formspree AJAX submission
+// n8n webhook submission
 const form=document.getElementById('contactForm');
 const sb=document.getElementById('sb');
 form.addEventListener('submit',async(e)=>{
   e.preventDefault();
-  const nombre=document.getElementById('nombre').value.trim();
-  const email=document.getElementById('email').value.trim();
-  const mensaje=document.getElementById('mensaje').value.trim();
+  const nombre=form.querySelector('[name="client_name"]').value.trim();
+  const email=form.querySelector('[name="email"]').value.trim();
+  const mensaje=form.querySelector('[name="project_requirements"]').value.trim();
   if(!nombre||!email||!mensaje){
     sb.textContent='⚠️ Por favor completa los campos obligatorios';
     sb.style.background='#b45309';
@@ -310,19 +310,33 @@ form.addEventListener('submit',async(e)=>{
   }
   sb.textContent='Enviando...';sb.disabled=true;
   try{
-    const res=await fetch('https://formspree.io/f/xlgkglzz',{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}});
-    if(res.ok){
-      sb.textContent='✅ ¡Mensaje enviado! Te contactaremos pronto';
+    const res=await fetch('https://waviness-verse-hardwired.ngrok-free.dev/webhook/lead-quote',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        client_name: nombre,
+        company: form.querySelector('[name="company"]').value.trim(),
+        email: email,
+        phone: form.querySelector('[name="phone"]').value.trim(),
+        services_requested: form.querySelector('[name="service_interest"]').value,
+        project_requirements: mensaje,
+        budget_range: '',
+        timeline_preference: ''
+      })
+    });
+    const data=await res.json();
+    if(data.success || res.ok){
+      sb.textContent='✅ ¡Cotización enviada! Revisa tu correo.';
       sb.style.cssText='width:100%;background:#22c55e;color:#fff;font-weight:700;border:none;padding:.85rem;border-radius:9px;cursor:default;font-size:.95rem;font-family:inherit;display:flex;align-items:center;justify-content:center';
       form.reset();
       setTimeout(()=>{sb.textContent='🚀 Enviar mensaje';sb.removeAttribute('style');sb.disabled=false;},4500);
     }else{
-      const data=await res.json();
-      sb.textContent='❌ Error: '+(data.errors?data.errors.map(e=>e.message).join(', '):'Intenta de nuevo');
+      sb.textContent='❌ Error: '+(data.error||'Intenta de nuevo');
       sb.style.background='#dc2626';
       setTimeout(()=>{sb.textContent='🚀 Enviar mensaje';sb.removeAttribute('style');sb.disabled=false;},4000);
     }
   }catch(err){
+    console.error(err);
     sb.textContent='❌ Error de conexión. Intenta de nuevo.';
     sb.style.background='#dc2626';
     setTimeout(()=>{sb.textContent='🚀 Enviar mensaje';sb.removeAttribute('style');sb.disabled=false;},4000);
