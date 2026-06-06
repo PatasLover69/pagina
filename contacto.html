@@ -111,7 +111,7 @@ footer p{color:var(--t2);font-size:.77rem}
 @media(max-width:540px){.svc-banner{padding:7rem 1.25rem 3rem}.frow{grid-template-columns:1fr}.cf{padding:1.75rem 1.25rem}}
 </style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"LocalBusiness","name":"Kodiak Tech & Train","description":"Servicios integrales de tecnología: soporte técnico, redes, servidores, desarrollo web y SEO en Cuernavaca, Morelos.","url":"https://kodiaktt.com","telephone":"+527773455468","email":"support@kodiaktt.com","address":{"@type":"PostalAddress","addressLocality":"Cuernavaca","addressRegion":"Morelos","addressCountry":"MX"},"geo":{"@type":"GeoCoordinates","latitude":"18.9186","longitude":"-99.2342"},"openingHours":"Mo-Fr 09:00-19:00","priceRange":"$$","areaServed":{"@type":"Country","name":"México"},"sameAs":[]}
+{"@context":"https://schema.org","@type":"LocalBusiness","name":"Kodiak Tech & Train","description":"Servicios integrales de tecnología: soporte técnico, redes, servidores, desarrollo web y SEO en Cuernavaca, Morelos.","url":"https://kodiaktt.com","telephone":"+527773455468","email":"contacto@kodiaktt.com","address":{"@type":"PostalAddress","addressLocality":"Cuernavaca","addressRegion":"Morelos","addressCountry":"MX"},"geo":{"@type":"GeoCoordinates","latitude":"18.9186","longitude":"-99.2342"},"openingHours":"Mo-Fr 09:00-19:00","priceRange":"$$","areaServed":{"@type":"Country","name":"México"},"sameAs":[]}
 </script>
 </head>
 <body>
@@ -186,7 +186,7 @@ footer p{color:var(--t2);font-size:.77rem}
             <div class="ci-ic">✉️</div>
             <div>
               <div class="ci-l">Correo electrónico</div>
-              <div class="ci-v">support@kodiaktt.com</div>
+              <div class="ci-v">contacto@kodiaktt.com</div>
             </div>
           </div>
           <div class="ci">
@@ -218,9 +218,9 @@ footer p{color:var(--t2);font-size:.77rem}
             <div class="qb-ic blue">📞</div>
             <div><div class="qb-label">Llamar ahora</div><div class="qb-val">(777) 345-5468</div></div>
           </a>
-          <a href="mailto:support@kodiaktt.com" class="quick-btn">
+          <a href="mailto:contacto@kodiaktt.com" class="quick-btn">
             <div class="qb-ic orange">✉️</div>
-            <div><div class="qb-label">Enviar correo</div><div class="qb-val">support@kodiaktt.com</div></div>
+            <div><div class="qb-label">Enviar correo</div><div class="qb-val">contacto@kodiaktt.com</div></div>
           </a>
           <a href="https://wa.me/527773455468" target="_blank" rel="noopener" class="quick-btn">
             <div class="qb-ic green">💬</div>
@@ -235,7 +235,7 @@ footer p{color:var(--t2);font-size:.77rem}
           <h3>Solicitar información o cotización</h3>
           <p>Completa el formulario y te contactamos en menos de 24 horas (días hábiles).</p>
         </div>
-        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" id="contactForm">
+        <form action="https://formspree.io/f/xlgkglzz" method="POST" id="contactForm">
         <div class="frow">
           <div class="fg"><label for="nombre">Nombre *</label><input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required></div>
           <div class="fg"><label for="empresa">Negocio / Empresa</label><input type="text" id="empresa" name="empresa" placeholder="Nombre de tu negocio o proyecto"></div>
@@ -294,9 +294,11 @@ const hamBtn=document.getElementById('hamBtn'),mobileNav=document.getElementById
 hamBtn.addEventListener('click',()=>mobileNav.classList.add('open'));
 mClose.addEventListener('click',()=>mobileNav.classList.remove('open'));
 mobileNav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mobileNav.classList.remove('open')));
-// Submit button feedback
+// Formspree AJAX submission
+const form=document.getElementById('contactForm');
 const sb=document.getElementById('sb');
-sb.addEventListener('click',()=>{
+form.addEventListener('submit',async(e)=>{
+  e.preventDefault();
   const nombre=document.getElementById('nombre').value.trim();
   const email=document.getElementById('email').value.trim();
   const mensaje=document.getElementById('mensaje').value.trim();
@@ -306,10 +308,25 @@ sb.addEventListener('click',()=>{
     setTimeout(()=>{sb.textContent='🚀 Enviar mensaje';sb.removeAttribute('style');},3000);
     return;
   }
-  const orig=sb.textContent;
-  sb.textContent='✅ ¡Mensaje enviado! Te contactaremos pronto';
-  sb.style.cssText='width:100%;background:#22c55e;color:#fff;font-weight:700;border:none;padding:.85rem;border-radius:9px;cursor:default;font-size:.95rem;font-family:inherit;display:flex;align-items:center;justify-content:center';
-  setTimeout(()=>{sb.textContent=orig;sb.removeAttribute('style');},4500);
+  sb.textContent='Enviando...';sb.disabled=true;
+  try{
+    const res=await fetch('https://formspree.io/f/xlgkglzz',{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}});
+    if(res.ok){
+      sb.textContent='✅ ¡Mensaje enviado! Te contactaremos pronto';
+      sb.style.cssText='width:100%;background:#22c55e;color:#fff;font-weight:700;border:none;padding:.85rem;border-radius:9px;cursor:default;font-size:.95rem;font-family:inherit;display:flex;align-items:center;justify-content:center';
+      form.reset();
+      setTimeout(()=>{sb.textContent='🚀 Enviar mensaje';sb.removeAttribute('style');sb.disabled=false;},4500);
+    }else{
+      const data=await res.json();
+      sb.textContent='❌ Error: '+(data.errors?data.errors.map(e=>e.message).join(', '):'Intenta de nuevo');
+      sb.style.background='#dc2626';
+      setTimeout(()=>{sb.textContent='🚀 Enviar mensaje';sb.removeAttribute('style');sb.disabled=false;},4000);
+    }
+  }catch(err){
+    sb.textContent='❌ Error de conexión. Intenta de nuevo.';
+    sb.style.background='#dc2626';
+    setTimeout(()=>{sb.textContent='🚀 Enviar mensaje';sb.removeAttribute('style');sb.disabled=false;},4000);
+  }
 });
 </script>
 </body>
