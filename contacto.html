@@ -235,16 +235,16 @@ footer p{color:var(--t2);font-size:.77rem}
           <h3>Solicitar información o cotización</h3>
           <p>Completa el formulario y te contactamos en menos de 24 horas (días hábiles).</p>
         </div>
-        <form action="https://waviness-verse-hardwired.ngrok-free.dev/webhook/lead-quote" method="POST" id="contactForm">
+        <form action="https://formspree.io/f/xlgkglzz" method="POST" id="contactForm">
         <div class="frow">
-          <div class="fg"><label for="nombre">Nombre *</label><input type="text" id="nombre" name="client_name" placeholder="Tu nombre completo" required></div>
-          <div class="fg"><label for="empresa">Negocio / Empresa</label><input type="text" id="empresa" name="company" placeholder="Nombre de tu negocio o proyecto"></div>
+          <div class="fg"><label for="nombre">Nombre *</label><input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required></div>
+          <div class="fg"><label for="empresa">Negocio / Empresa</label><input type="text" id="empresa" name="empresa" placeholder="Nombre de tu negocio o proyecto"></div>
         </div>
         <div class="fg"><label for="email">Correo electrónico *</label><input type="email" id="email" name="email" placeholder="tucorreo@ejemplo.com" required></div>
-        <div class="fg"><label for="telefono">Teléfono</label><input type="tel" id="telefono" name="phone" placeholder="(777) 000-0000"></div>
+        <div class="fg"><label for="telefono">Teléfono</label><input type="tel" id="telefono" name="telefono" placeholder="(777) 000-0000"></div>
         <div class="fg">
           <label for="servicio">Servicio de interés</label>
-          <select id="servicio" name="service_interest">
+          <select id="servicio" name="servicio">
             <option value="">Selecciona un servicio...</option>
             <option>Soporte y mantenimiento de equipos</option>
             <option>Dise&#241;o e instalaci&#243;n de redes</option>
@@ -257,7 +257,7 @@ footer p{color:var(--t2);font-size:.77rem}
             <option>Varios / No s&#233; por d&#243;nde empezar</option>
           </select>
         </div>
-        <div class="fg"><label for="mensaje">Cuéntanos tu proyecto *</label><textarea id="mensaje" name="project_requirements" placeholder="Describe brevemente tu necesidad, reto o proyecto..." required></textarea></div>
+        <div class="fg"><label for="mensaje">Cuéntanos tu proyecto *</label><textarea id="mensaje" name="mensaje" placeholder="Describe brevemente tu necesidad, reto o proyecto..." required></textarea></div>
         <button type="submit" class="submit-btn" id="sb">&#128640; Enviar mensaje</button>
         </form>
       </div>
@@ -294,14 +294,14 @@ const hamBtn=document.getElementById('hamBtn'),mobileNav=document.getElementById
 hamBtn.addEventListener('click',()=>mobileNav.classList.add('open'));
 mClose.addEventListener('click',()=>mobileNav.classList.remove('open'));
 mobileNav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mobileNav.classList.remove('open')));
-// n8n webhook submission
+// Formspree AJAX submission
 const form=document.getElementById('contactForm');
 const sb=document.getElementById('sb');
 form.addEventListener('submit',async(e)=>{
   e.preventDefault();
-  const nombre=form.querySelector('[name="client_name"]').value.trim();
-  const email=form.querySelector('[name="email"]').value.trim();
-  const mensaje=form.querySelector('[name="project_requirements"]').value.trim();
+  const nombre=document.getElementById('nombre').value.trim();
+  const email=document.getElementById('email').value.trim();
+  const mensaje=document.getElementById('mensaje').value.trim();
   if(!nombre||!email||!mensaje){
     sb.textContent='⚠️ Por favor completa los campos obligatorios';
     sb.style.background='#b45309';
@@ -310,33 +310,19 @@ form.addEventListener('submit',async(e)=>{
   }
   sb.textContent='Enviando...';sb.disabled=true;
   try{
-    const res=await fetch('https://waviness-verse-hardwired.ngrok-free.dev/webhook/lead-quote',{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({
-        client_name: nombre,
-        company: form.querySelector('[name="company"]').value.trim(),
-        email: email,
-        phone: form.querySelector('[name="phone"]').value.trim(),
-        services_requested: form.querySelector('[name="service_interest"]').value,
-        project_requirements: mensaje,
-        budget_range: '',
-        timeline_preference: ''
-      })
-    });
-    const data=await res.json();
-    if(data.success || res.ok){
-      sb.textContent='✅ ¡Cotización enviada! Revisa tu correo.';
+    const res=await fetch('https://formspree.io/f/xlgkglzz',{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}});
+    if(res.ok){
+      sb.textContent='✅ ¡Mensaje enviado! Te contactaremos pronto';
       sb.style.cssText='width:100%;background:#22c55e;color:#fff;font-weight:700;border:none;padding:.85rem;border-radius:9px;cursor:default;font-size:.95rem;font-family:inherit;display:flex;align-items:center;justify-content:center';
       form.reset();
       setTimeout(()=>{sb.textContent='🚀 Enviar mensaje';sb.removeAttribute('style');sb.disabled=false;},4500);
     }else{
-      sb.textContent='❌ Error: '+(data.error||'Intenta de nuevo');
+      const data=await res.json();
+      sb.textContent='❌ Error: '+(data.errors?data.errors.map(e=>e.message).join(', '):'Intenta de nuevo');
       sb.style.background='#dc2626';
       setTimeout(()=>{sb.textContent='🚀 Enviar mensaje';sb.removeAttribute('style');sb.disabled=false;},4000);
     }
   }catch(err){
-    console.error(err);
     sb.textContent='❌ Error de conexión. Intenta de nuevo.';
     sb.style.background='#dc2626';
     setTimeout(()=>{sb.textContent='🚀 Enviar mensaje';sb.removeAttribute('style');sb.disabled=false;},4000);
